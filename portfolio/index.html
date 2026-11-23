@@ -320,7 +320,8 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
           <p data-t="talk3"></p>
         </div>
         <div class="reach">
-          <a class="b3" href="https://t.me/Didera_Web" target="_blank" rel="noopener"><span data-t="cta_tg"></span> <span aria-hidden="true">↗</span></a>
+          <a class="b3" id="leadBtn" href="#" target="_blank" rel="noopener" hidden><span data-t="lead"></span> <span aria-hidden="true">↗</span></a>
+          <a class="b3" id="tgBtn" href="https://t.me/Didera_Web" target="_blank" rel="noopener"><span data-t="cta_tg"></span> <span aria-hidden="true">↗</span></a>
           <div class="phone"><span id="tel">+420 776 523 900</span><button type="button" id="copy" data-t="copy"></button></div>
         </div>
       </div>
@@ -339,82 +340,85 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
       c1:"Сайти, які продають",c2:"Автоматизація",c3:"Telegram-боти",c4:"Рішення під ключ",
       howto:"Подивись, як це працює",all:"Усі роботи",talk1:"Наступним може бути",talk2:"твій сайт",
       talk3:"Напиши, що в тебе за справа, і я скажу, як це може виглядати.",copy:"Скопіювати",copied:"Скопійовано",
-      live:"Живий проєкт",concept:"Концепт",site:"Сайт",open:"Відкрити",opensite:"Відкрити сайт",openbot:"Відкрити бота",enter:"Увійти на сайт",run:"Запустити досвід",fresh:"Новий проєкт"},
+      live:"Живий проєкт",concept:"Концепт",site:"Сайт",open:"Відкрити",opensite:"Відкрити сайт",openbot:"Відкрити бота",enter:"Увійти на сайт",run:"Запустити досвід",fresh:"Новий проєкт",want:"Хочу такий",lead:"Залишити заявку"},
     ru:{nav_works:"Проекты",nav_contact:"Контакты",
       tag1:"Сайты, автоматизация и цифровые решения,",tag2:"в которые влюбляются.",
       cta_tg:"Напиши мне в Telegram",cta_call:"Позвони",cta_works:"Перейти к проектам",
       c1:"Сайты, которые продают",c2:"Автоматизация",c3:"Telegram-боты",c4:"Решения под ключ",
       howto:"Посмотри, как это работает",all:"Все работы",talk1:"Следующим может быть",talk2:"твой сайт",
       talk3:"Напиши, чем ты занимаешься, и я покажу, как это может выглядеть.",copy:"Скопировать",copied:"Скопировано",
-      live:"Живой проект",concept:"Концепт",site:"Сайт",open:"Открыть",opensite:"Открыть сайт",openbot:"Открыть бота",enter:"Войти на сайт",run:"Запустить опыт",fresh:"Новый проект"},
+      live:"Живой проект",concept:"Концепт",site:"Сайт",open:"Открыть",opensite:"Открыть сайт",openbot:"Открыть бота",enter:"Войти на сайт",run:"Запустить опыт",fresh:"Новый проект",want:"Хочу такой",lead:"Оставить заявку"},
     cs:{nav_works:"Projekty",nav_contact:"Kontakt",
       tag1:"Weby, automatizace a digitální řešení,",tag2:"do kterých se zamilujete.",
       cta_tg:"Napiš mi na Telegram",cta_call:"Zavolej mi",cta_works:"Přejít na projekty",
       c1:"Weby, které prodávají",c2:"Automatizace",c3:"Telegram boti",c4:"Řešení na klíč",
       howto:"Podívej se, jak to funguje",all:"Všechny projekty",talk1:"Další může být",talk2:"tvůj web",
       talk3:"Napiš mi, čím se zabýváš, a já ti řeknu, jak by to mohlo vypadat.",copy:"Kopírovat",copied:"Zkopírováno",
-      live:"Živý projekt",concept:"Koncept",site:"Web",open:"Otevřít",opensite:"Otevřít web",openbot:"Otevřít bota",enter:"Vstoupit na web",run:"Spustit zážitek",fresh:"Nový projekt"},
+      live:"Živý projekt",concept:"Koncept",site:"Web",open:"Otevřít",opensite:"Otevřít web",openbot:"Otevřít bota",enter:"Vstoupit na web",run:"Spustit zážitek",fresh:"Nový projekt",want:"Chci podobný",lead:"Poslat poptávku"},
     en:{nav_works:"Projects",nav_contact:"Contact",
       tag1:"Websites, automation and digital solutions",tag2:"people fall in love with.",
       cta_tg:"Message me on Telegram",cta_call:"Call me",cta_works:"See the projects",
       c1:"Websites that sell",c2:"Automation",c3:"Telegram bots",c4:"Turnkey solutions",
       howto:"See how it works",all:"All projects",talk1:"The next one could be",talk2:"your site",
       talk3:"Tell me about your business and I'll show you how it could look.",copy:"Copy",copied:"Copied",
-      live:"Live project",concept:"Concept",site:"Website",open:"Open",opensite:"Open site",openbot:"Open bot",enter:"Enter site",run:"Start the experience",fresh:"New project"}
+      live:"Live project",concept:"Concept",site:"Website",open:"Open",opensite:"Open site",openbot:"Open bot",enter:"Enter site",run:"Start the experience",fresh:"New project",want:"I want one like this",lead:"Send a request"}
   };
   var works=[
-    {name:"MARINEK",type:"live",bar:"marinaekfitness.com",img:"images/marinek.webp",room:"#7a2433",
+    {name:"MARINEK",slug:"marinek",type:"live",bar:"marinaekfitness.com",img:"images/marinek.webp",room:"#7a2433",
      kind:{uk:"Сайт + Telegram-бот",ru:"Сайт + Telegram-бот",cs:"Web + Telegram bot",en:"Site + Telegram bot"},
      text:{uk:"Авторські фітнес-курси. Сайт веде в бота, а бот сам приймає оплату, відкриває доступ до відео й складає меню харчування.",ru:"Авторские фитнес-курсы. Сайт ведёт в бота, а бот сам принимает оплату, открывает доступ к видео и составляет меню питания.",cs:"Autorské fitness kurzy. Web vede k botovi a bot sám přijme platbu, otevře videa a sestaví jídelníček.",en:"Signature fitness courses. The site leads to a bot that takes payment, unlocks the videos and builds a meal plan by itself."},
      say:{uk:"Бот працює сам, 24/7",ru:"Бот работает сам, 24/7",cs:"Bot jede sám, 24/7",en:"The bot runs itself, 24/7"},
      links:[["opensite","https://marinaekfitness.com"],["openbot","https://t.me/marinek_fit_courses_bot"]]},
-    {name:"MISTR FIX",type:"live",bar:"mistrfix.cz",img:"images/mistrfix.webp",room:"#5a4a42",
+    {name:"MISTR FIX",slug:"mistrfix",type:"live",bar:"mistrfix.cz",img:"images/mistrfix.webp",room:"#5a4a42",
      kind:{uk:"Сервіс у Пльзені",ru:"Сервис в Пльзене",cs:"Servis v Plzni",en:"Service in Plzeň"},
      text:{uk:"Мобільний сервіс ремонту. Людина надсилає фото проблеми або дзвонить просто з першого екрана.",ru:"Мобильный сервис ремонта. Человек отправляет фото проблемы или звонит прямо с первого экрана.",cs:"Mobilní servis oprav. Zákazník pošle fotku problému nebo zavolá přímo z první obrazovky.",en:"A mobile repair service. Customers send a photo of the problem or call right from the first screen."},
      say:{uk:"Фотка. Виїзд. Готово.",ru:"Фотка. Выезд. Готово.",cs:"Fotka. Výjezd. Hotovo.",en:"Photo. Visit. Done."},
      links:[["opensite","https://mistrfix.cz"]]},
-    {name:"MAISON ROUGE",type:"concept",bar:"maison-rouge",img:"images/maison.webp",room:"#7a2433",
+    {name:"MAISON ROUGE",slug:"maison",type:"concept",bar:"maison-rouge",img:"images/maison.webp",room:"#7a2433",
      kind:{uk:"5D SPA",ru:"5D SPA",cs:"5D SPA",en:"5D SPA"},
      text:{uk:"Приватний SPA, у який входиш як у кіно: глибина, сцени й заявка на ритуал.",ru:"Приватный SPA, в который входишь как в кино: глубина, сцены и заявка на ритуал.",cs:"Soukromé SPA, do kterého vstoupíte jako do filmu: hloubka, scény a rezervace rituálu.",en:"A private SPA you enter like a film: depth, scenes and a ritual booking request."},
      say:{uk:"Зайди, тут красиво",ru:"Заходи, здесь красиво",cs:"Pojď dál, je tu krásně",en:"Come in, it's beautiful"},
      links:[["enter","works/maison-rouge.html"]]},
-    {name:"ALLORO",type:"site",bar:"alloro-prague",img:"images/alloro.webp",room:"#5a4a42",
+    {name:"ALLORO",slug:"alloro",type:"site",bar:"alloro-prague",img:"images/alloro.webp",room:"#5a4a42",
      kind:{uk:"Ресторан у Празі",ru:"Ресторан в Праге",cs:"Restaurace v Praze",en:"Restaurant in Prague"},
      text:{uk:"Повне меню й бронювання столика чотирма мовами.",ru:"Полное меню и бронирование столика на четырёх языках.",cs:"Kompletní menu a rezervace stolu ve čtyřech jazycích.",en:"A full menu and table booking in four languages."},
      say:{uk:"Столик уже чекає",ru:"Столик уже ждёт",cs:"Stůl už čeká",en:"Your table is waiting"},
      links:[["opensite","https://alloro-prague-reservations.ruby-rice-9201.chatgpt.site/"]]},
-    {name:"The Donut Experience",type:"concept",bar:"the-donut-experience",img:"images/donut.webp",room:"#7a2433",
+    {name:"The Donut Experience",slug:"donut",type:"concept",bar:"the-donut-experience",img:"images/donut.webp",room:"#7a2433",
      kind:{uk:"3D-фільм",ru:"3D-фильм",cs:"3D film",en:"3D film"},
      text:{uk:"Донат, який розкривається під час скролу: шари, шоколад, рентген і п'ять смаків.",ru:"Пончик, который раскрывается при скролле: слои, шоколад, рентген и пять вкусов.",cs:"Donut, který se odhaluje při scrollování: vrstvy, čokoláda, rentgen a pět chutí.",en:"A donut that opens up as you scroll: layers, chocolate, X-ray and five flavours."},
      say:{uk:"Гортай повільно",ru:"Листай медленно",cs:"Scrolluj pomalu",en:"Scroll slowly"},
      links:[["run","works/donut.html"]]},
-    {name:"Raspberry Atelier",type:"concept",bar:"didera-raspberry-atelier",img:"images/raspberry.webp",room:"#5a4a42",
+    {name:"Raspberry Atelier",slug:"raspberry",type:"concept",bar:"didera-raspberry-atelier",img:"images/raspberry.webp",room:"#5a4a42",
      kind:{uk:"Малина в шоколаді",ru:"Малина в шоколаде",cs:"Malina v čokoládě",en:"Raspberry in chocolate"},
      text:{uk:"Десерт як ритуал: три колекції й конструктор власного набору.",ru:"Десерт как ритуал: три коллекции и конструктор своего набора.",cs:"Dezert jako rituál: tři kolekce a sestavení vlastního setu.",en:"Dessert as a ritual: three collections and a build-your-own set."},
      say:{uk:"Обережно, смачно",ru:"Осторожно, вкусно",cs:"Pozor, chutná to",en:"Careful, it's delicious"},
      links:[["opensite","https://didera-raspberry-atelier.ruby-rice-9201.chatgpt.site/"]]},
-    {name:"AUREA",type:"concept",bar:"aurea-transformation",img:"images/aurea.webp",room:"#7a2433",
+    {name:"AUREA",slug:"aurea",type:"concept",bar:"aurea-transformation",img:"images/aurea.webp",room:"#7a2433",
      kind:{uk:"Рух і харчування",ru:"Движение и питание",cs:"Pohyb a výživa",en:"Movement and nutrition"},
      text:{uk:"Мистецтво трансформації: кінематографічний сайт із тестом «Знайти свій ритуал».",ru:"Искусство трансформации: кинематографичный сайт с тестом «Найди свой ритуал».",cs:"Umění proměny: filmový web s testem „Najdi svůj rituál“.",en:"The art of transformation: a cinematic site with a “Find your ritual” quiz."},
      say:{uk:"Знайди свій ритуал",ru:"Найди свой ритуал",cs:"Najdi svůj rituál",en:"Find your ritual"},
      links:[["opensite","https://aurea-transformation.ruby-rice-9201.chatgpt.site/"]]},
-    {name:"Woodspace",type:"site",bar:"woodspace-mukachevo",img:"images/woodspace.webp",room:"#5a4a42",
+    {name:"Woodspace",slug:"woodspace",type:"site",bar:"woodspace-mukachevo",img:"images/woodspace.webp",room:"#5a4a42",
      kind:{uk:"Будинок у лісі",ru:"Дом в лесу",cs:"Dům v lese",en:"House in the forest"},
      text:{uk:"Приватний wellness-будинок біля Мукачева: сауна, чан, басейн і заявка на бронювання.",ru:"Приватный wellness-дом возле Мукачево: сауна, чан, бассейн и заявка на бронирование.",cs:"Soukromý wellness dům u Mukačeva: sauna, káď, bazén a rezervace.",en:"A private wellness house near Mukachevo: sauna, hot tub, pool and booking requests."},
      say:{uk:"Тут дуже тихо",ru:"Здесь очень тихо",cs:"Tady je ticho",en:"It's so quiet here"},
      links:[["opensite","https://woodspace-mukachevo.ruby-rice-9201.chatgpt.site/"]]},
-    {name:"PYLYPIAK",type:"site",bar:"pylypiak-veronichka",img:"images/pylypiak.webp",room:"#7a2433",
+    {name:"PYLYPIAK",slug:"pylypiak",type:"site",bar:"pylypiak-veronichka",img:"images/pylypiak.webp",room:"#7a2433",
      kind:{uk:"Особистий бренд",ru:"Личный бренд",cs:"Osobní značka",en:"Personal brand"},
      text:{uk:"Сайт відеомейкерки: роботи, послуги, Instagram і заявка на проєкт.",ru:"Сайт видеомейкера: работы, услуги, Instagram и заявка на проект.",cs:"Web videomakerky: práce, služby, Instagram a poptávka projektu.",en:"A videomaker's site: work, services, Instagram and project requests."},
      say:{uk:"Контент, який працює",ru:"Контент, который работает",cs:"Obsah, který funguje",en:"Content that works"},
      links:[["opensite","https://pylypiak-veronichka.ruby-rice-9201.chatgpt.site/"]]},
-    {name:"IRYNA BODLAK",type:"fresh",bar:"iryna-bodlak · the art of growth",img:"images/iryna.webp",room:"#24356b",
+    {name:"IRYNA BODLAK",slug:"iryna",type:"fresh",bar:"iryna-bodlak · the art of growth",img:"images/iryna.webp",room:"#7a2433",
      kind:{uk:"Нумерологиня · особистий бренд",ru:"Нумеролог · личный бренд",cs:"Numeroložka · osobní značka",en:"Numerologist · personal brand"},
      text:{uk:"Сайт практикуючої нумерологині: послуги для людей і бізнесу, історія, дипломи, запис на консультацію. П'ять мов.",ru:"Сайт практикующего нумеролога: услуги для людей и бизнеса, история, дипломы, запись на консультацию. Пять языков.",cs:"Web praktikující numeroložky: služby pro lidi i firmy, příběh, diplomy a objednání konzultace. Pět jazyků.",en:"A practising numerologist's site: services for people and business, her story, diplomas and consultation booking. Five languages."},
      say:{uk:"Цифри знають більше",ru:"Цифры знают больше",cs:"Čísla vědí víc",en:"Numbers know more"},
      links:[["enter","works/iryna/index.html"]]}
   ];
 
+  /* Username бота заявок без @, напр. "didera_requests_bot". Порожньо = кнопки бота сховані. */
+  var BOT="";
+  var botUrl=function(sl){return "https://t.me/"+BOT+"?start="+(sl?"p_"+sl+"_":"")+lang};
   var $=function(i){return document.getElementById(i)};
   var root=document.documentElement;
   var lang="uk";
@@ -479,12 +483,14 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
     var t=T[l];
     document.querySelectorAll(".bub .bt").forEach(function(e,i){e.innerHTML=B[i].tx[l]});
     document.querySelectorAll("[data-t]").forEach(function(e){e.textContent=t[e.dataset.t]});
+    var lb=$("leadBtn");if(BOT){lb.hidden=false;lb.href=botUrl("");$("tgBtn").classList.add("b3--line")}
     document.querySelectorAll("#langs button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
     works.forEach(function(w){
       var u=w.links[0][1],typ=t[w.type];
       w.sayEl.textContent=w.say[l];
       w.card.innerHTML='<div class="card__type">'+typ+' <em>· '+w.kind[l]+'</em></div><h2 class="d3-s">'+w.name+'</h2><p>'+w.text[l]+'</p><div class="acts">'+
-        w.links.map(function(k,n){return '<a class="b3'+(n?' b3--line':'')+'" href="'+k[1]+'"'+attrs(k[1])+'>'+t[k[0]]+arrow(k[1])+'</a>'}).join("")+'</div>';
+        w.links.map(function(k,n){return '<a class="b3'+(n?' b3--line':'')+'" href="'+k[1]+'"'+attrs(k[1])+'>'+t[k[0]]+arrow(k[1])+'</a>'}).join("")+
+        (BOT?'<a class="b3 b3--line" href="'+botUrl(w.slug)+'" target="_blank" rel="noopener">'+t.want+' ↗</a>':'')+'</div>';
       w.li.innerHTML='<a class="row" href="'+u+'"'+attrs(u)+'><b>'+w.name+'</b><span>'+typ+' · '+w.kind[l]+'</span><u>'+t.open+arrow(u)+'</u></a>';
     });
   }
