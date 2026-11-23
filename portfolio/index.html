@@ -37,6 +37,7 @@ h1,h2,h3{font-weight:400;text-wrap:balance}
 
 .top{position:fixed;inset:0 0 auto;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:calc(16px + env(safe-area-inset-top,0px)) max(40px,var(--gut-r)) 14px max(40px,var(--gut-l));transition:background .4s}
+.top.deep{background:rgba(26,21,20,.92)!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 .top.solid{background:linear-gradient(180deg,rgba(26,21,20,.9),rgba(26,21,20,0))}
 .top__mark{font:400 24px/1 var(--display);letter-spacing:.04em;text-decoration:none}
 .top__nav{display:flex;gap:clamp(18px,3.4vw,50px);font-size:15px}
@@ -222,6 +223,131 @@ h1,h2,h3{font-weight:400;text-wrap:balance}
 .phone button:hover{border-color:var(--wine-hi)}
 footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
 
+/* ---------- Site builder ---------- */
+.kit__head{max-width:720px}
+.kit__head p{margin-top:16px;max-width:52ch;color:#e8dcd1}
+.kit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:44px;align-items:start;margin-top:44px}
+.kit__steps{display:grid;gap:14px;grid-column:1;grid-row:1}
+.kit__view{grid-column:2;grid-row:1;position:sticky;top:84px}
+.kit .picks{margin:0 0 6px}
+.step{margin:0;padding:20px;border:1px solid var(--line);border-radius:16px;background:rgba(26,21,20,.4);min-width:0}
+.step legend{float:left;width:100%;display:flex;align-items:baseline;gap:12px;padding:0;margin:0 0 14px;font:400 22px/1.2 var(--display)}
+.step legend b{font:600 12px var(--body);letter-spacing:.14em;color:#e3a5ad}
+.step legend+*{clear:both}
+.kit__in{width:100%;box-sizing:border-box;font:inherit;font-size:16px;color:var(--cream);background:rgba(241,230,218,.05);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+textarea.kit__in{resize:vertical;min-height:84px}
+.kit__in:focus{outline:2px solid var(--wine-hi);outline-offset:1px}
+.kit input[type=radio],.kit input[type=checkbox]{position:absolute;opacity:0;pointer-events:none}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{cursor:pointer;display:block}
+.opt>span{display:grid;gap:4px;height:100%;box-sizing:border-box;padding:14px;border:1px solid var(--line);border-radius:12px;transition:border-color .2s,background .2s,transform .15s}
+.opt:active>span{transform:scale(.98)}
+.opt b{font-weight:500;font-size:15px}
+.opt small{font-size:12.5px;line-height:1.35;color:var(--mute)}
+.opt .aa{font-size:26px;line-height:1.1;color:var(--cream)}
+.kit input:checked+span{border-color:var(--wine-hi);background:rgba(122,36,51,.42)}
+.kit input:focus-visible+span{outline:2px solid var(--cream);outline-offset:2px}
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(98px,1fr));gap:10px}
+.sw label{cursor:pointer}
+.sw label>span{display:grid;gap:8px;padding:8px 8px 10px;border:1px solid var(--line);border-radius:12px;font-size:12.5px;color:var(--mute);transition:border-color .2s,background .2s}
+.sw i{display:flex;height:34px;border-radius:8px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(241,230,218,.15)}
+.sw i u{flex:1}
+.sw i u:last-child{flex:.7}
+.sw input:checked+span{color:var(--cream)}
+.sw .own i{position:relative;background:conic-gradient(from 90deg,#a23a4b,#c9a96e,#f1e6da,#7a8fa6,#a23a4b)}
+.sw .own input[type=color]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;pointer-events:auto}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{cursor:pointer}
+.chips label>span{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border:1px solid var(--line);border-radius:30px;font-size:14px;transition:border-color .2s,background .2s,transform .15s}
+.chips label:active>span{transform:scale(.97)}
+.chips span::before{content:"+";color:var(--mute);width:10px}
+.chips input:checked+span::before{content:"✓";color:#e3a5ad}
+.kit .pk label>span{padding:13px 15px}
+.kit .pk__note{margin:10px 0 0}
+.kit__go{--u:1px;justify-content:center;min-height:56px;font-size:16px;border:0;color:var(--cream);font-family:var(--body);cursor:pointer}
+.kit__cap{margin-top:12px;font-size:13px;color:var(--mute);text-align:center}
+.reach--row{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
+.reach--row .b3{flex:1 1 240px;--u:1px;justify-content:center;min-height:54px;font-size:15px}
+.reach--row .phone{flex:1 1 280px}
+
+/* Mock site */
+.mock{--m-bg:#1a1514;--m-sf:#2c2522;--m-ink:#f1e6da;--m-ac:#a23a4b;--m-on:#fff;--m-r:4px;--m-fd:"Playfair Display",serif;--m-fb:"Manrope",sans-serif;
+  height:min(640px,calc(100svh - 150px));overflow:auto;overscroll-behavior:contain;scrollbar-width:none;border-radius:14px;border:1px solid var(--line);box-shadow:0 30px 70px rgba(0,0,0,.45);
+  background:var(--m-bg);color:var(--m-ink);font:400 11px/1.5 var(--m-fb);transition:background .45s,color .45s}
+.mock::-webkit-scrollbar{display:none}
+.mock *{transition:background-color .45s,color .45s,border-color .45s,border-radius .3s}
+.m-bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:6px;height:26px;padding:0 10px;background:#322a27;color:var(--mute);font:500 10px var(--body)}
+.m-bar i{width:7px;height:7px;border-radius:50%;background:rgba(241,230,218,.25)}
+.m-bar i:first-child{background:var(--wine-hi)}
+.m-bar span{margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 18px;border-bottom:1px solid color-mix(in srgb,var(--m-ink) 12%,transparent)}
+.m-logo{font:500 14px/1 var(--m-fd);letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:45%}
+.m-links{display:flex;gap:10px;font-size:9.5px;opacity:.8;white-space:nowrap}
+.m-links em{font-style:normal;color:var(--m-ac)}
+.m-hero{padding:34px 22px 30px;display:grid;gap:10px;justify-items:center;text-align:center}
+.m-eye{font-size:8.5px;letter-spacing:.3em;text-transform:uppercase;opacity:.7}
+.m-h{font:400 30px/1.05 var(--m-fd);margin:0;overflow-wrap:anywhere}
+.m-p{max-width:30ch;opacity:.78}
+.m-btn{display:inline-block;padding:8px 16px;border-radius:var(--m-r);background:var(--m-ac);color:var(--m-on);font-size:10px;font-weight:600}
+.m-btn--o{background:transparent;color:var(--m-ink);border:1px solid color-mix(in srgb,var(--m-ink) 40%,transparent)}
+.m-acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.m-img{height:110px;border-radius:var(--m-r);background:radial-gradient(60% 80% at 70% 30%,color-mix(in srgb,var(--m-ac) 70%,transparent),transparent 70%),linear-gradient(135deg,var(--m-sf),color-mix(in srgb,var(--m-sf) 60%,var(--m-bg)));position:relative;overflow:hidden}
+.m-img::after{content:"";position:absolute;left:18%;bottom:-20%;width:42%;aspect-ratio:1;border-radius:50%;background:color-mix(in srgb,var(--m-ink) 14%,transparent)}
+.m-sec{padding:22px 20px;border-top:1px solid color-mix(in srgb,var(--m-ink) 10%,transparent)}
+.m-sec h4{margin:0 0 12px;font:400 17px/1.15 var(--m-fd)}
+.m-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.m-card{padding:10px;border-radius:var(--m-r);background:var(--m-sf);display:grid;gap:5px}
+.m-card b{font:500 11px var(--m-fd)}
+.m-line{height:5px;border-radius:3px;background:color-mix(in srgb,var(--m-ink) 18%,transparent)}
+.m-line.s{width:60%}
+.m-row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed color-mix(in srgb,var(--m-ink) 18%,transparent)}
+.m-row b{font-weight:500}
+.m-row i{font-style:normal;color:var(--m-ac);font-weight:600}
+.m-gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.m-gal u{aspect-ratio:1;border-radius:var(--m-r);background:linear-gradient(160deg,color-mix(in srgb,var(--m-ac) calc(var(--k)*14%),var(--m-sf)),var(--m-sf))}
+.m-gal u:nth-child(1){grid-row:span 2;aspect-ratio:auto}
+.m-q{padding:14px;border-radius:var(--m-r);background:var(--m-sf);font:italic 400 12px/1.45 var(--m-fd)}
+.m-q small{display:block;margin-top:8px;font:500 9px var(--m-fb);font-style:normal;opacity:.7;letter-spacing:.1em;text-transform:uppercase}
+.m-form{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.m-form u{height:24px;border-radius:var(--m-r);border:1px solid color-mix(in srgb,var(--m-ink) 22%,transparent)}
+.m-form .m-btn{grid-column:1/-1;text-align:center;padding:7px}
+.m-shop .m-card u{display:block;aspect-ratio:1.2;border-radius:calc(var(--m-r) * .7);background:linear-gradient(140deg,color-mix(in srgb,var(--m-ac) 35%,var(--m-bg)),var(--m-bg))}
+.m-shop .m-card i{font-style:normal;color:var(--m-ac);font-weight:600}
+.m-blog .m-row{border-style:solid}
+.m-foot{padding:16px 20px 20px;display:flex;justify-content:space-between;font-size:9px;opacity:.6;border-top:1px solid color-mix(in srgb,var(--m-ink) 10%,transparent)}
+.m-tg{position:sticky;bottom:10px;margin:-36px 10px 0 auto;width:max-content;display:flex;align-items:center;gap:6px;padding:7px 11px;border-radius:30px;background:var(--m-ac);color:var(--m-on);font-size:9.5px;font-weight:600;box-shadow:0 6px 16px rgba(0,0,0,.3);animation:mPop .5s cubic-bezier(.3,1.5,.5,1)}
+@keyframes mPop{from{transform:scale(.6);opacity:0}}
+/* styles */
+.mock.st-noir .m-hero{padding:44px 22px 38px}
+.mock.st-noir .m-h{letter-spacing:.02em;text-transform:uppercase;font-size:28px}
+.mock.st-noir .m-hero::after{content:"";width:40px;height:1px;background:var(--m-ac);order:2}
+.mock.st-noir .m-btn{background:transparent;color:var(--m-ink);border:1px solid var(--m-ac)}
+.mock.st-creme .m-hero{grid-template-columns:1.1fr .9fr;justify-items:start;text-align:left;align-items:center;column-gap:14px}
+.mock.st-creme .m-hero>*{grid-column:1}
+.mock.st-creme .m-hero .m-img{grid-column:2;grid-row:1/6;width:100%;height:150px}
+.mock.st-creme .m-acts{justify-content:flex-start}
+.mock.st-creme .m-sec h4{font-size:15px;text-transform:uppercase;letter-spacing:.08em}
+.mock.st-bordo .m-hero{margin:12px;border-radius:calc(var(--m-r) * 1.6);background:var(--m-ac);color:var(--m-on);padding:36px 18px}
+.mock.st-bordo .m-h{font-size:36px;font-weight:600}
+.mock.st-bordo .m-btn{background:var(--m-on);color:var(--m-ac)}
+.mock.st-bordo .m-btn--o{background:transparent;color:var(--m-on);border-color:color-mix(in srgb,var(--m-on) 60%,transparent)}
+.mock.st-silk{background:linear-gradient(180deg,var(--m-sf),var(--m-bg) 55%)}
+.mock.st-silk .m-h{font-style:italic;font-size:32px}
+.mock.st-silk .m-card,.mock.st-silk .m-q{box-shadow:0 8px 18px rgba(0,0,0,.18)}
+.mock.st-silk .m-sec{border-top:0}
+
+@media (max-width:820px){
+  .kit{grid-template-columns:minmax(0,1fr);gap:16px;margin-top:28px}
+  .kit__view{grid-column:1;grid-row:1;top:0;z-index:5;margin:0 calc(var(--gut-r) * -1) 0 calc(var(--gut-l) * -1);padding:calc(58px + env(safe-area-inset-top,0px)) var(--gut-r) 12px var(--gut-l);background:rgba(34,27,25,.97);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 12px 24px rgba(0,0,0,.35)}
+  .kit__steps{grid-column:1;grid-row:2}
+  .mock{height:230px;font-size:10px}
+  .m-tg span{display:none}
+  .kit__cap{display:none}
+  .step{padding:16px}
+  .step legend{font-size:20px}
+  .opts--font{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
 /* Upright screens: the same scene, text stacked over her */
 .tall .top__nav{display:none}
 .tall .top{padding-left:var(--gut-l);padding-right:var(--gut-r)}
@@ -352,33 +478,58 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
 
   <section class="talk" id="talk">
     <div class="wrap">
-      <div class="talk__grid">
-        <div>
-          <h2 class="d3-s"><span data-t="talk1"></span> <em data-t="talk2"></em></h2>
-          <p data-t="talk3"></p>
+      <div class="kit__head">
+        <h2 class="d3-s"><span data-t="talk1"></span> <em data-t="talk2"></em></h2>
+        <p data-t="talk3"></p>
+      </div>
+      <form class="kit" id="req" novalidate>
+        <div class="kit__view" aria-hidden="true">
+          <div class="mock" id="mock"></div>
+          <p class="kit__cap" data-k="cap"></p>
+        </div>
+        <div class="kit__steps">
           <div class="picks">
             <div class="picks__h" data-t="picks_h"></div>
             <div class="picks__list" id="picks"></div>
           </div>
-        </div>
-        <div class="side">
-        <form class="req" id="req">
-          <fieldset class="pk">
-            <legend data-t="pk_h"></legend>
+          <fieldset class="step">
+            <legend><b>01</b><span data-k="s_name"></span></legend>
+            <input class="kit__in" id="kName" maxlength="26" autocomplete="organization">
+          </fieldset>
+          <fieldset class="step">
+            <legend><b>02</b><span data-k="s_style"></span></legend>
+            <div class="opts" id="kStyle"></div>
+          </fieldset>
+          <fieldset class="step">
+            <legend><b>03</b><span data-k="s_pal"></span></legend>
+            <div class="sw" id="kPal"></div>
+          </fieldset>
+          <fieldset class="step">
+            <legend><b>04</b><span data-k="s_font"></span></legend>
+            <div class="opts opts--font" id="kFont"></div>
+          </fieldset>
+          <fieldset class="step">
+            <legend><b>05</b><span data-k="s_blocks"></span></legend>
+            <div class="chips" id="kBlocks"></div>
+          </fieldset>
+          <fieldset class="step pk">
+            <legend><b>06</b><span data-t="pk_h"></span></legend>
             <label><input type="radio" name="pk" value="site" checked><span><b data-t="pk_site"></b><i>250–350 €</i></span></label>
             <label><input type="radio" name="pk" value="bot"><span><b data-t="pk_bot"></b><i>450–1100 €</i></span></label>
             <label><input type="radio" name="pk" value="unsure"><span><b data-t="pk_unsure"></b><i data-t="pk_unsure2"></i></span></label>
+            <p class="pk__note" data-t="pk_note"></p>
           </fieldset>
-          <p class="pk__note" data-t="pk_note"></p>
-          <label class="req__msg"><span data-t="msg_h"></span><textarea id="msg" rows="4"></textarea></label>
-          <button class="b3" type="submit"><span data-t="lead"></span> <span aria-hidden="true">↗</span></button>
+          <fieldset class="step">
+            <legend><b>07</b><span data-t="msg_h"></span></legend>
+            <textarea class="kit__in" id="msg" rows="3"></textarea>
+          </fieldset>
+          <button class="b3 kit__go" type="submit"><span data-k="send"></span> <span aria-hidden="true">↗</span></button>
           <p class="req__ok" id="reqOk" role="status" aria-live="polite"></p>
-        </form>
-            <div class="reach">
-              <a class="b3 b3--line" href="https://t.me/Didera_Web" target="_blank" rel="noopener"><span data-t="cta_tg"></span> <span aria-hidden="true">↗</span></a>
-              <div class="phone"><a id="tel" href="tel:+420776523900">+420 776 523 900</a><button type="button" id="copy" data-t="copy"></button></div>
-            </div>
         </div>
+      </form>
+      <div class="reach reach--row">
+        <a class="b3 b3--line" href="https://t.me/Didera_Web" target="_blank" rel="noopener"><span data-t="cta_tg"></span> <span aria-hidden="true">↗</span></a>
+        <div class="phone"><a id="tel" href="tel:+420776523900">+420 776 523 900</a><button type="button" id="copy" data-t="copy"></button></div>
       </div>
       <footer><span>Created by DIDÉRA</span><span>Digital Luxury Experiences</span></footer>
     </div>
@@ -389,34 +540,34 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
 (function(){
   /* ---------- Words ---------- */
   var T={
-    uk:{nav_works:"Проєкти",nav_contact:"Заявка",
+    uk:{nav_works:"Проєкти",nav_contact:"Конструктор",
       tag1:"Вебсайти, автоматизація та цифрові рішення,",tag2:"які закохують у себе.",
       cta_tg:"Напиши мені в Telegram",cta_call:"Подзвони",cta_works:"Усі проєкти списком",
       c1:"Сайти, які продають",c2:"Автоматизація",c3:"Telegram-боти",c4:"Рішення під ключ",
-      howto:"Екскурсія з Діаною",all:"Усі роботи",talk1:"Наступним може бути",talk2:"твій сайт",
-      talk3:"Обери пакет, напиши пару слів про свою справу, і я скоро відповім.",copy:"Скопіювати",copied:"Скопійовано",
-      live:"Живий проєкт",concept:"Концепт",site:"Сайт",open:"Відкрити",opensite:"Відкрити сайт",openbot:"Відкрити бота",enter:"Увійти на сайт",run:"Запустити досвід",fresh:"Новий проєкт",want:"Хочу такий",lead:"Залишити заявку",hi1:"Привіт, я Діана.",hi2:"Вітаю у моєму світі веб-сторінок.",intro:"Кейсів поки небагато, і кожен зроблений так, щоб у нього закохувались. Ходімо на екскурсію: я сяду на кожен сайт і розповім про нього. А в кінці ти залишиш заявку на свій.",tour_go:"Почати екскурсію",tour:"Екскурсія",like:"Хочу такий",liked:"Додано в заявку",picks_h:"Тобі сподобались",picks_none:"Під час екскурсії тисни ♡ «Хочу такий», і проєкти з'являться тут.",pk_h:"Що тобі потрібно?",pk_site:"Сайт",pk_bot:"Сайт + Telegram-бот",pk_unsure:"Ще не знаю",pk_unsure2:"порадь мені",pk_note:"Ціни орієнтовні. Точну суму скажу, коли поговоримо.",msg_h:"Розкажи пару слів про свою справу і який сайт хочеш",sent_copy:"Відкриваю Telegram. Текст заявки вже скопійовано, просто встав його в чат і надішли 🤍",sent_bot:"Відкриваю бота, він підхопить твою заявку 🤍",m_hi:"Привіт, Діано! Хочу залишити заявку.",m_like:"Сподобались",m_pk:"Пакет",m_me:"Про мене"},
-    ru:{nav_works:"Проекты",nav_contact:"Заявка",
+      howto:"Екскурсія з Діаною",all:"Усі роботи",talk1:"Збери",talk2:"свій сайт",
+      talk3:"Обери стиль, кольори, шрифти й блоки, і макет одразу зміниться. Ти збираєш, а я перетворюю це на справжній сайт.",copy:"Скопіювати",copied:"Скопійовано",
+      live:"Живий проєкт",concept:"Концепт",site:"Сайт",open:"Відкрити",opensite:"Відкрити сайт",openbot:"Відкрити бота",enter:"Увійти на сайт",run:"Запустити досвід",fresh:"Новий проєкт",want:"Хочу такий",lead:"Залишити заявку",hi1:"Привіт, я Діана.",hi2:"Вітаю у моєму світі веб-сторінок.",intro:"Кейсів поки небагато, і кожен зроблений так, щоб у нього закохувались. Ходімо на екскурсію: я сяду на кожен сайт і розповім про нього. А в кінці ти залишиш заявку на свій.",tour_go:"Почати екскурсію",tour:"Екскурсія",like:"Хочу такий",liked:"Додано в заявку",picks_h:"Тобі сподобались",picks_none:"Під час екскурсії тисни ♡ «Хочу такий», і проєкти з'являться тут.",pk_h:"Що тобі потрібно?",pk_site:"Сайт",pk_bot:"Сайт + Telegram-бот",pk_unsure:"Ще не знаю",pk_unsure2:"порадь мені",pk_note:"Ціни орієнтовні. Точну суму скажу, коли поговоримо.",msg_h:"Кілька слів про твою справу",sent_copy:"Відкриваю Telegram. Текст заявки вже скопійовано, просто встав його в чат і надішли 🤍",sent_bot:"Відкриваю бота, він підхопить твою заявку 🤍",m_hi:"Привіт, Діано! Хочу залишити заявку.",m_like:"Сподобались",m_pk:"Пакет",m_me:"Про мене"},
+    ru:{nav_works:"Проекты",nav_contact:"Конструктор",
       tag1:"Сайты, автоматизация и цифровые решения,",tag2:"в которые влюбляются.",
       cta_tg:"Напиши мне в Telegram",cta_call:"Позвони",cta_works:"Все проекты списком",
       c1:"Сайты, которые продают",c2:"Автоматизация",c3:"Telegram-боты",c4:"Решения под ключ",
-      howto:"Экскурсия с Дианой",all:"Все работы",talk1:"Следующим может быть",talk2:"твой сайт",
-      talk3:"Выбери пакет, напиши пару слов о своём деле, и я скоро отвечу.",copy:"Скопировать",copied:"Скопировано",
-      live:"Живой проект",concept:"Концепт",site:"Сайт",open:"Открыть",opensite:"Открыть сайт",openbot:"Открыть бота",enter:"Войти на сайт",run:"Запустить опыт",fresh:"Новый проект",want:"Хочу такой",lead:"Оставить заявку",hi1:"Привет, я Диана.",hi2:"Добро пожаловать в мой мир веб-страниц.",intro:"Кейсов пока немного, и каждый сделан так, чтобы в него влюблялись. Пойдём на экскурсию: я сяду на каждый сайт и расскажу о нём. А в конце ты оставишь заявку на свой.",tour_go:"Начать экскурсию",tour:"Экскурсия",like:"Хочу такой",liked:"Добавлено в заявку",picks_h:"Тебе понравились",picks_none:"Во время экскурсии жми ♡ «Хочу такой», и проекты появятся здесь.",pk_h:"Что тебе нужно?",pk_site:"Сайт",pk_bot:"Сайт + Telegram-бот",pk_unsure:"Пока не знаю",pk_unsure2:"подскажи мне",pk_note:"Цены ориентировочные. Точную сумму скажу, когда поговорим.",msg_h:"Расскажи пару слов о своём деле и какой сайт хочешь",sent_copy:"Открываю Telegram. Текст заявки уже скопирован, просто вставь его в чат и отправь 🤍",sent_bot:"Открываю бота, он подхватит твою заявку 🤍",m_hi:"Привет, Диана! Хочу оставить заявку.",m_like:"Понравились",m_pk:"Пакет",m_me:"О себе"},
-    cs:{nav_works:"Projekty",nav_contact:"Poptávka",
+      howto:"Экскурсия с Дианой",all:"Все работы",talk1:"Собери",talk2:"свой сайт",
+      talk3:"Выбери стиль, цвета, шрифты и блоки, и макет сразу изменится. Ты собираешь, а я превращаю это в настоящий сайт.",copy:"Скопировать",copied:"Скопировано",
+      live:"Живой проект",concept:"Концепт",site:"Сайт",open:"Открыть",opensite:"Открыть сайт",openbot:"Открыть бота",enter:"Войти на сайт",run:"Запустить опыт",fresh:"Новый проект",want:"Хочу такой",lead:"Оставить заявку",hi1:"Привет, я Диана.",hi2:"Добро пожаловать в мой мир веб-страниц.",intro:"Кейсов пока немного, и каждый сделан так, чтобы в него влюблялись. Пойдём на экскурсию: я сяду на каждый сайт и расскажу о нём. А в конце ты оставишь заявку на свой.",tour_go:"Начать экскурсию",tour:"Экскурсия",like:"Хочу такой",liked:"Добавлено в заявку",picks_h:"Тебе понравились",picks_none:"Во время экскурсии жми ♡ «Хочу такой», и проекты появятся здесь.",pk_h:"Что тебе нужно?",pk_site:"Сайт",pk_bot:"Сайт + Telegram-бот",pk_unsure:"Пока не знаю",pk_unsure2:"подскажи мне",pk_note:"Цены ориентировочные. Точную сумму скажу, когда поговорим.",msg_h:"Пара слов о твоём деле",sent_copy:"Открываю Telegram. Текст заявки уже скопирован, просто вставь его в чат и отправь 🤍",sent_bot:"Открываю бота, он подхватит твою заявку 🤍",m_hi:"Привет, Диана! Хочу оставить заявку.",m_like:"Понравились",m_pk:"Пакет",m_me:"О себе"},
+    cs:{nav_works:"Projekty",nav_contact:"Konstruktor",
       tag1:"Weby, automatizace a digitální řešení,",tag2:"do kterých se zamilujete.",
       cta_tg:"Napiš mi na Telegram",cta_call:"Zavolej mi",cta_works:"Všechny projekty v seznamu",
       c1:"Weby, které prodávají",c2:"Automatizace",c3:"Telegram boti",c4:"Řešení na klíč",
-      howto:"Prohlídka s Dianou",all:"Všechny projekty",talk1:"Další může být",talk2:"tvůj web",
-      talk3:"Vyber balíček, napiš pár slov o svém podnikání a brzy se ozvu.",copy:"Kopírovat",copied:"Zkopírováno",
-      live:"Živý projekt",concept:"Koncept",site:"Web",open:"Otevřít",opensite:"Otevřít web",openbot:"Otevřít bota",enter:"Vstoupit na web",run:"Spustit zážitek",fresh:"Nový projekt",want:"Chci podobný",lead:"Poslat poptávku",hi1:"Ahoj, jsem Diana.",hi2:"Vítej v mém světě webových stránek.",intro:"Projektů zatím není moc, ale každý je udělaný tak, aby se do něj lidé zamilovali. Pojď na prohlídku: sednu si na každý web a povím ti o něm. A na konci mi pošleš poptávku na ten svůj.",tour_go:"Začít prohlídku",tour:"Prohlídka",like:"Chci podobný",liked:"Přidáno do poptávky",picks_h:"Líbí se ti",picks_none:"Během prohlídky klikni na ♡ „Chci podobný“ a projekty se objeví tady.",pk_h:"Co potřebuješ?",pk_site:"Web",pk_bot:"Web + Telegram bot",pk_unsure:"Ještě nevím",pk_unsure2:"poraď mi",pk_note:"Ceny jsou orientační. Přesnou částku řeknu, až si promluvíme.",msg_h:"Napiš pár slov o svém podnikání a jaký web chceš",sent_copy:"Otevírám Telegram. Text poptávky je zkopírovaný, stačí ho vložit do chatu a odeslat 🤍",sent_bot:"Otevírám bota, poptávku převezme 🤍",m_hi:"Ahoj Diano! Chci poslat poptávku.",m_like:"Líbí se mi",m_pk:"Balíček",m_me:"O mně"},
-    en:{nav_works:"Projects",nav_contact:"Request",
+      howto:"Prohlídka s Dianou",all:"Všechny projekty",talk1:"Poskládej si",talk2:"svůj web",
+      talk3:"Vyber styl, barvy, písma a bloky a náhled se hned změní. Ty skládáš, já z toho udělám skutečný web.",copy:"Kopírovat",copied:"Zkopírováno",
+      live:"Živý projekt",concept:"Koncept",site:"Web",open:"Otevřít",opensite:"Otevřít web",openbot:"Otevřít bota",enter:"Vstoupit na web",run:"Spustit zážitek",fresh:"Nový projekt",want:"Chci podobný",lead:"Poslat poptávku",hi1:"Ahoj, jsem Diana.",hi2:"Vítej v mém světě webových stránek.",intro:"Projektů zatím není moc, ale každý je udělaný tak, aby se do něj lidé zamilovali. Pojď na prohlídku: sednu si na každý web a povím ti o něm. A na konci mi pošleš poptávku na ten svůj.",tour_go:"Začít prohlídku",tour:"Prohlídka",like:"Chci podobný",liked:"Přidáno do poptávky",picks_h:"Líbí se ti",picks_none:"Během prohlídky klikni na ♡ „Chci podobný“ a projekty se objeví tady.",pk_h:"Co potřebuješ?",pk_site:"Web",pk_bot:"Web + Telegram bot",pk_unsure:"Ještě nevím",pk_unsure2:"poraď mi",pk_note:"Ceny jsou orientační. Přesnou částku řeknu, až si promluvíme.",msg_h:"Pár slov o tvém podnikání",sent_copy:"Otevírám Telegram. Text poptávky je zkopírovaný, stačí ho vložit do chatu a odeslat 🤍",sent_bot:"Otevírám bota, poptávku převezme 🤍",m_hi:"Ahoj Diano! Chci poslat poptávku.",m_like:"Líbí se mi",m_pk:"Balíček",m_me:"O mně"},
+    en:{nav_works:"Projects",nav_contact:"Site builder",
       tag1:"Websites, automation and digital solutions",tag2:"people fall in love with.",
       cta_tg:"Message me on Telegram",cta_call:"Call me",cta_works:"All projects as a list",
       c1:"Websites that sell",c2:"Automation",c3:"Telegram bots",c4:"Turnkey solutions",
-      howto:"A tour with Diana",all:"All projects",talk1:"The next one could be",talk2:"your site",
-      talk3:"Pick a package, write a few words about your business, and I'll reply soon.",copy:"Copy",copied:"Copied",
-      live:"Live project",concept:"Concept",site:"Website",open:"Open",opensite:"Open site",openbot:"Open bot",enter:"Enter site",run:"Start the experience",fresh:"New project",want:"I want one like this",lead:"Send a request",hi1:"Hi, I'm Diana.",hi2:"Welcome to my world of web pages.",intro:"There aren't many cases yet, and each one is made for people to fall in love with. Let's take a tour: I'll sit on every site and tell you about it. At the end, you can send a request for yours.",tour_go:"Start the tour",tour:"Tour",like:"I want one",liked:"Added to request",picks_h:"You liked",picks_none:"During the tour, tap ♡ “I want one” and the projects will show up here.",pk_h:"What do you need?",pk_site:"Website",pk_bot:"Website + Telegram bot",pk_unsure:"Not sure yet",pk_unsure2:"advise me",pk_note:"Prices are approximate. I'll name the exact figure after we talk.",msg_h:"Tell me a few words about your business and the site you want",sent_copy:"Opening Telegram. Your request is copied, just paste it into the chat and send 🤍",sent_bot:"Opening the bot, it will pick up your request 🤍",m_hi:"Hi Diana! I'd like to send a request.",m_like:"I liked",m_pk:"Package",m_me:"About me"}
+      howto:"A tour with Diana",all:"All projects",talk1:"Build",talk2:"your site",
+      talk3:"Pick a style, colours, fonts and blocks, and the preview changes right away. You put it together, I turn it into a real site.",copy:"Copy",copied:"Copied",
+      live:"Live project",concept:"Concept",site:"Website",open:"Open",opensite:"Open site",openbot:"Open bot",enter:"Enter site",run:"Start the experience",fresh:"New project",want:"I want one like this",lead:"Send a request",hi1:"Hi, I'm Diana.",hi2:"Welcome to my world of web pages.",intro:"There aren't many cases yet, and each one is made for people to fall in love with. Let's take a tour: I'll sit on every site and tell you about it. At the end, you can send a request for yours.",tour_go:"Start the tour",tour:"Tour",like:"I want one",liked:"Added to request",picks_h:"You liked",picks_none:"During the tour, tap ♡ “I want one” and the projects will show up here.",pk_h:"What do you need?",pk_site:"Website",pk_bot:"Website + Telegram bot",pk_unsure:"Not sure yet",pk_unsure2:"advise me",pk_note:"Prices are approximate. I'll name the exact figure after we talk.",msg_h:"A few words about your business",sent_copy:"Opening Telegram. Your request is copied, just paste it into the chat and send 🤍",sent_bot:"Opening the bot, it will pick up your request 🤍",m_hi:"Hi Diana! I'd like to send a request.",m_like:"I liked",m_pk:"Package",m_me:"About me"}
   };
   var works=[
     {name:"MARINEK",slug:"marinek",type:"live",bar:"marinaekfitness.com",img:"images/marinek.webp",room:"#7a2433",
@@ -574,14 +725,138 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
   });
   var _setLang=setLang;setLang=function(l){_setLang(l);renderPicks()};
 
+  /* ---------- Site builder ---------- */
+  var CT={
+    uk:{s_name:"Як називається твоя справа?",s_style:"Обери стиль",s_pal:"Кольори",s_font:"Шрифти",s_blocks:"Що буде на сайті",send:"Надіслати Діані",cap:"Живий макет. Так приблизно виглядатиме твій сайт",
+      ph_name:"Наприклад, Studio Rosé",def_name:"Твоя назва",eye:"ласкаво просимо",tagline:"Тут буде головна думка про тебе й твою справу",btn:"Записатися",btn2:"Детальніше",
+      nav:["Про нас","Послуги","Контакти"],own:"Свій колір",
+      st:{noir:["Нуар","Темний люкс, тонкі лінії, багато повітря"],creme:["Крем","Світлий мінімал, текст і фото поруч"],bordo:["Бордо","Сміливий акцент, великі заголовки"],silk:["Шовк","М'які форми, тепло й ніжність"]},
+      pal:{noir:"Бордо нуар",champ:"Шампань",taupe:"Тауп і золото",powder:"Пудра",wine:"Вино",graph:"Графіт"},
+      font:{classic:["Класика","Playfair + Manrope"],elegant:["Елегантний","Cormorant + Jost"],modern:["Сучасний","Montserrat + Inter"],soft:["М'який","Lora + Nunito"]},
+      bl:{services:"Послуги",prices:"Ціни",gallery:"Галерея",reviews:"Відгуки",booking:"Онлайн-запис",shop:"Магазин",blog:"Блог",tg:"Telegram-бот",langs:"Кілька мов"},
+      m:{services:"Послуги",prices:"Ціни",gallery:"Галерея",reviews:"Відгуки",booking:"Запис онлайн",shop:"Магазин",blog:"Блог",review:"«Неймовірно приємно, повернусь ще!»",client:"Клієнтка",name:"Ім'я",phone:"Телефон",date:"Дата",time:"Час",book:"Записатися",item:["Послуга","Ритуал","Консультація"],post:["Як обрати свій стиль","5 ідей для весни"],chat:"Написати в Telegram"},
+      r:{name:"Назва",style:"Стиль",pal:"Кольори",font:"Шрифти",blocks:"На сайті"}},
+    ru:{s_name:"Как называется твоё дело?",s_style:"Выбери стиль",s_pal:"Цвета",s_font:"Шрифты",s_blocks:"Что будет на сайте",send:"Отправить Диане",cap:"Живой макет. Примерно так будет выглядеть твой сайт",
+      ph_name:"Например, Studio Rosé",def_name:"Твоё название",eye:"добро пожаловать",tagline:"Здесь будет главная мысль о тебе и твоём деле",btn:"Записаться",btn2:"Подробнее",
+      nav:["О нас","Услуги","Контакты"],own:"Свой цвет",
+      st:{noir:["Нуар","Тёмный люкс, тонкие линии, много воздуха"],creme:["Крем","Светлый минимал, текст и фото рядом"],bordo:["Бордо","Смелый акцент, крупные заголовки"],silk:["Шёлк","Мягкие формы, тепло и нежность"]},
+      pal:{noir:"Бордо нуар",champ:"Шампань",taupe:"Тауп и золото",powder:"Пудра",wine:"Вино",graph:"Графит"},
+      font:{classic:["Классика","Playfair + Manrope"],elegant:["Элегантный","Cormorant + Jost"],modern:["Современный","Montserrat + Inter"],soft:["Мягкий","Lora + Nunito"]},
+      bl:{services:"Услуги",prices:"Цены",gallery:"Галерея",reviews:"Отзывы",booking:"Онлайн-запись",shop:"Магазин",blog:"Блог",tg:"Telegram-бот",langs:"Несколько языков"},
+      m:{services:"Услуги",prices:"Цены",gallery:"Галерея",reviews:"Отзывы",booking:"Запись онлайн",shop:"Магазин",blog:"Блог",review:"«Невероятно приятно, вернусь ещё!»",client:"Клиентка",name:"Имя",phone:"Телефон",date:"Дата",time:"Время",book:"Записаться",item:["Услуга","Ритуал","Консультация"],post:["Как выбрать свой стиль","5 идей для весны"],chat:"Написать в Telegram"},
+      r:{name:"Название",style:"Стиль",pal:"Цвета",font:"Шрифты",blocks:"На сайте"}},
+    cs:{s_name:"Jak se jmenuje tvoje podnikání?",s_style:"Vyber styl",s_pal:"Barvy",s_font:"Písma",s_blocks:"Co bude na webu",send:"Poslat Dianě",cap:"Živý náhled. Přibližně takhle bude tvůj web vypadat",
+      ph_name:"Například Studio Rosé",def_name:"Tvůj název",eye:"vítejte",tagline:"Tady bude hlavní myšlenka o tobě a tvém podnikání",btn:"Objednat se",btn2:"Více",
+      nav:["O nás","Služby","Kontakt"],own:"Vlastní barva",
+      st:{noir:["Noir","Tmavý luxus, jemné linky, hodně vzduchu"],creme:["Krém","Světlý minimal, text a fotka vedle sebe"],bordo:["Bordó","Odvážný akcent, velké nadpisy"],silk:["Hedvábí","Měkké tvary, teplo a něha"]},
+      pal:{noir:"Bordó noir",champ:"Šampaň",taupe:"Taupe a zlato",powder:"Pudr",wine:"Víno",graph:"Grafit"},
+      font:{classic:["Klasika","Playfair + Manrope"],elegant:["Elegantní","Cormorant + Jost"],modern:["Moderní","Montserrat + Inter"],soft:["Jemný","Lora + Nunito"]},
+      bl:{services:"Služby",prices:"Ceník",gallery:"Galerie",reviews:"Recenze",booking:"Online rezervace",shop:"E-shop",blog:"Blog",tg:"Telegram bot",langs:"Více jazyků"},
+      m:{services:"Služby",prices:"Ceník",gallery:"Galerie",reviews:"Recenze",booking:"Online rezervace",shop:"E-shop",blog:"Blog",review:"„Neskutečně příjemné, určitě se vrátím!“",client:"Zákaznice",name:"Jméno",phone:"Telefon",date:"Datum",time:"Čas",book:"Rezervovat",item:["Služba","Rituál","Konzultace"],post:["Jak najít svůj styl","5 nápadů na jaro"],chat:"Napsat na Telegram"},
+      r:{name:"Název",style:"Styl",pal:"Barvy",font:"Písma",blocks:"Na webu"}},
+    en:{s_name:"What's your business called?",s_style:"Pick a style",s_pal:"Colours",s_font:"Fonts",s_blocks:"What goes on the site",send:"Send to Diana",cap:"Live preview. Roughly how your site will look",
+      ph_name:"For example, Studio Rosé",def_name:"Your name",eye:"welcome",tagline:"The main idea about you and your business goes here",btn:"Book now",btn2:"Learn more",
+      nav:["About","Services","Contact"],own:"Own colour",
+      st:{noir:["Noir","Dark luxury, fine lines, lots of air"],creme:["Crème","Light minimal, text and photo side by side"],bordo:["Bordeaux","Bold accent, big headlines"],silk:["Silk","Soft shapes, warm and gentle"]},
+      pal:{noir:"Bordeaux noir",champ:"Champagne",taupe:"Taupe & gold",powder:"Powder",wine:"Wine",graph:"Graphite"},
+      font:{classic:["Classic","Playfair + Manrope"],elegant:["Elegant","Cormorant + Jost"],modern:["Modern","Montserrat + Inter"],soft:["Soft","Lora + Nunito"]},
+      bl:{services:"Services",prices:"Prices",gallery:"Gallery",reviews:"Reviews",booking:"Online booking",shop:"Shop",blog:"Blog",tg:"Telegram bot",langs:"Several languages"},
+      m:{services:"Services",prices:"Prices",gallery:"Gallery",reviews:"Reviews",booking:"Book online",shop:"Shop",blog:"Blog",review:"“Such a lovely experience, I'll be back!”",client:"Client",name:"Name",phone:"Phone",date:"Date",time:"Time",book:"Book",item:["Service","Ritual","Consultation"],post:["How to find your style","5 ideas for spring"],chat:"Message on Telegram"},
+      r:{name:"Name",style:"Style",pal:"Colours",font:"Fonts",blocks:"On the site"}}
+  };
+  var PAL={noir:["#1a1514","#2c2522","#f1e6da","#a23a4b"],champ:["#f4ece2","#e6d9c8","#2c2522","#a8834f"],taupe:["#3a312d","#4a403b","#f1e6da","#c9a96e"],
+    powder:["#f6e9e6","#ecd5d0","#3b2326","#a04a5a"],wine:["#4a1520","#5e1d2b","#f6e7dc","#e7c08a"],graph:["#1d1d1f","#2b2b2e","#ededed","#c79a7a"]};
+  var FONT={classic:['"Playfair Display",serif','"Manrope",sans-serif'],elegant:['"Cormorant Garamond",serif','"Jost",sans-serif'],modern:['"Montserrat",sans-serif','"Inter",sans-serif'],soft:['"Lora",serif','"Nunito",sans-serif']};
+  var STYLE_R={noir:"2px",creme:"0px",bordo:"14px",silk:"20px"},STYLE_PAL={noir:"noir",creme:"champ",bordo:"wine",silk:"powder"};
+  var BLOCKS=["services","prices","gallery","reviews","booking","shop","blog","tg","langs"];
+  var kit={name:"",style:"noir",pal:"noir",own:"",font:"classic",blocks:{services:1,gallery:1,reviews:1,booking:1}};
+  try{var ks=JSON.parse(localStorage.getItem("didera-kit")||"null");if(ks&&ks.style)kit=ks}catch(e){}
+  function saveKit(){try{localStorage.setItem("didera-kit",JSON.stringify(kit))}catch(e){}}
+  function esc(x){return String(x).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function lum(h){var n=parseInt(h.slice(1),16),r=n>>16&255,g=n>>8&255,b=n&255;return(.2126*r+.7152*g+.0722*b)/255}
+
+  function buildOptions(){
+    var c=CT[lang];
+    $("kName").placeholder=c.ph_name;$("kName").value=kit.name;
+    $("kStyle").innerHTML=Object.keys(c.st).map(function(k){return '<label class="opt"><input type="radio" name="kst" value="'+k+'"'+(kit.style===k?" checked":"")+'><span><b>'+c.st[k][0]+'</b><small>'+c.st[k][1]+'</small></span></label>'}).join("");
+    $("kPal").innerHTML=Object.keys(PAL).map(function(k){var p=PAL[k];return '<label><input type="radio" name="kpal" value="'+k+'"'+(kit.pal===k?" checked":"")+'><span><i><u style="background:'+p[0]+'"></u><u style="background:'+p[1]+'"></u><u style="background:'+p[2]+'"></u><u style="background:'+p[3]+'"></u></i>'+c.pal[k]+'</span></label>'}).join("")+
+      '<label class="own"><input type="radio" name="kpal" value="own"'+(kit.pal==="own"?" checked":"")+'><span><i'+(kit.own?' style="background:'+kit.own+'"':'')+'><input type="color" id="kOwn" value="'+(kit.own||"#a23a4b")+'" aria-label="'+c.own+'"></i>'+c.own+'</span></label>';
+    $("kFont").innerHTML=Object.keys(FONT).map(function(k){return '<label class="opt"><input type="radio" name="kfont" value="'+k+'"'+(kit.font===k?" checked":"")+'><span><span class="aa" style="font-family:'+FONT[k][0].replace(/"/g,"'")+'">Aa</span><b style="font-family:'+FONT[k][1].replace(/"/g,"'")+'">'+c.font[k][0]+'</b><small>'+c.font[k][1]+'</small></span></label>'}).join("");
+    $("kBlocks").innerHTML=BLOCKS.map(function(k){return '<label><input type="checkbox" value="'+k+'"'+(kit.blocks[k]?" checked":"")+'><span>'+c.bl[k]+'</span></label>'}).join("");
+    document.querySelectorAll("[data-k]").forEach(function(e){e.textContent=c[e.dataset.k]});
+  }
+
+  function renderMock(){
+    var c=CT[lang],m=c.m,b=kit.blocks,mock=$("mock");
+    var p=(PAL[kit.pal]||PAL.noir).slice();
+    if(kit.pal==="own"&&kit.own){var base=lum(kit.own)>.6?PAL.graph:PAL.noir;p=[base[0],base[1],base[2],kit.own]}
+    var f=FONT[kit.font]||FONT.classic;
+    mock.className="mock st-"+kit.style;
+    var v={"--m-bg":p[0],"--m-sf":p[1],"--m-ink":p[2],"--m-ac":p[3],"--m-on":lum(p[3])>.62?"#1a1514":"#fff","--m-r":STYLE_R[kit.style],"--m-fd":f[0],"--m-fb":f[1]};
+    for(var k in v)mock.style.setProperty(k,v[k]);
+    var name=esc(kit.name.trim()||c.def_name);
+    var h='<div class="m-bar"><i></i><i></i><i></i><span>'+(kit.name.trim()?esc(kit.name.trim().toLowerCase().replace(/\s+/g,"-")):"your-site")+'.com</span></div>'+
+      '<div class="m-nav"><span class="m-logo">'+name+'</span><span class="m-links">'+m.services.split(" ")[0]+' · '+c.nav[0]+' · '+c.nav[2]+(b.langs?' · <em>UA RU CZ EN</em>':'')+'</span></div>'+
+      '<div class="m-hero"><span class="m-eye">'+c.eye+'</span><h3 class="m-h">'+name+'</h3><p class="m-p">'+c.tagline+'</p><div class="m-acts"><span class="m-btn">'+c.btn+'</span><span class="m-btn m-btn--o">'+c.btn2+'</span></div>'+(kit.style==="creme"||kit.style==="silk"?'<div class="m-img"></div>':'')+'</div>';
+    var card=function(t){return '<div class="m-card"><b>'+t+'</b><span class="m-line"></span><span class="m-line s"></span></div>'};
+    if(b.services)h+='<div class="m-sec"><h4>'+m.services+'</h4><div class="m-grid">'+m.item.map(card).join("")+'</div></div>';
+    if(b.gallery)h+='<div class="m-sec"><h4>'+m.gallery+'</h4><div class="m-gal">'+[5,2,4,1,3].map(function(k){return '<u style="--k:'+k+'"></u>'}).join("")+'</div></div>';
+    if(b.prices)h+='<div class="m-sec"><h4>'+m.prices+'</h4>'+m.item.map(function(t,i){return '<div class="m-row"><b>'+t+'</b><i>'+[45,70,30][i]+' €</i></div>'}).join("")+'</div>';
+    if(b.shop)h+='<div class="m-sec m-shop"><h4>'+m.shop+'</h4><div class="m-grid">'+[24,38,19].map(function(pr){return '<div class="m-card"><u></u><span class="m-line s"></span><i>'+pr+' €</i></div>'}).join("")+'</div></div>';
+    if(b.reviews)h+='<div class="m-sec"><h4>'+m.reviews+'</h4><div class="m-q">'+m.review+'<small>'+m.client+' · ★★★★★</small></div></div>';
+    if(b.blog)h+='<div class="m-sec m-blog"><h4>'+m.blog+'</h4>'+m.post.map(function(t){return '<div class="m-row"><b>'+t+'</b><span>→</span></div>'}).join("")+'</div>';
+    if(b.booking)h+='<div class="m-sec"><h4>'+m.booking+'</h4><div class="m-form"><u></u><u></u><u></u><u></u><span class="m-btn">'+m.book+'</span></div></div>';
+    h+='<div class="m-foot"><span>'+name+'</span><span>© 2026</span></div>';
+    if(b.tg)h+='<div class="m-tg">✈ <span>'+m.chat+'</span></div>';
+    mock.innerHTML=h;
+  }
+  function kitSync(){buildOptions();renderMock();renderPicks()}
+
+  $("req").addEventListener("input",function(e){
+    var el=e.target;
+    if(el.id==="kName"){kit.name=el.value}
+    else if(el.id==="kOwn"){kit.own=el.value;kit.pal="own";el.closest("i").style.background=el.value;var r=el.closest("label").querySelector('input[type=radio]');r.checked=true}
+    else return;
+    saveKit();renderMock();
+  });
+  $("req").addEventListener("change",function(e){
+    var el=e.target;
+    if(el.name==="kst"){kit.style=el.value;kit.pal=STYLE_PAL[el.value];var pr=document.querySelector('input[name="kpal"][value="'+kit.pal+'"]');if(pr)pr.checked=true}
+    else if(el.name==="kpal"){kit.pal=el.value}
+    else if(el.name==="kfont"){kit.font=el.value}
+    else if(el.type==="checkbox"){kit.blocks[el.value]=el.checked?1:0;
+      if(el.value==="tg"&&el.checked){var pb=document.querySelector('input[name="pk"][value="bot"]');if(pb)pb.checked=true}}
+    else return;
+    saveKit();renderMock();
+  });
+  /* extra fonts load only when the builder is near */
+  (function(){
+    var done=false;function load(){if(done)return;done=true;var l=document.createElement("link");l.rel="stylesheet";
+      l.href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500&family=Montserrat:wght@500;700&family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400&family=Nunito:wght@400;600&display=swap&subset=cyrillic,latin,latin-ext";
+      document.head.appendChild(l)}
+    if("IntersectionObserver" in window){var io=new IntersectionObserver(function(en){if(en.some(function(x){return x.isIntersecting})){load();io.disconnect()}},{rootMargin:"900px"});io.observe($("talk"))}else load();
+  })();
+  function deepTop(){$("topbar").classList.toggle("deep",scrollY>$("index").offsetTop-60)}
+  addEventListener("scroll",deepTop,{passive:true});deepTop();
+  var _setLang2=setLang;setLang=function(l){_setLang2(l);kitSync()};
+
   /* ---------- Request ---------- */
   $("req").addEventListener("submit",function(e){
     e.preventDefault();
-    var t=T[lang],pk=(document.querySelector('input[name="pk"]:checked')||{}).value||"site";
+    var t=T[lang],c=CT[lang],r=c.r,pk=(document.querySelector('input[name="pk"]:checked')||{}).value||"site";
     var price={site:"250–350 €",bot:"450–1100 €",unsure:""}[pk];
     var msg=$("msg").value.trim();
-    var text=t.m_hi+"\n"+(picks.length?t.m_like+": "+picks.map(nameOf).join(", ")+"\n":"")+t.m_pk+": "+t["pk_"+pk]+(price?" ("+price+")":"")+(msg?"\n"+t.m_me+": "+msg:"");
-    var url;
+    var bl=BLOCKS.filter(function(k){return kit.blocks[k]}).map(function(k){return c.bl[k]});
+    var lines=[t.m_hi];
+    if(kit.name.trim())lines.push(r.name+": "+kit.name.trim());
+    lines.push(r.style+": "+c.st[kit.style][0]);
+    lines.push(r.pal+": "+(kit.pal==="own"?c.own+" "+(kit.own||""):c.pal[kit.pal]));
+    lines.push(r.font+": "+c.font[kit.font][0]+" ("+c.font[kit.font][1]+")");
+    if(bl.length)lines.push(r.blocks+": "+bl.join(", "));
+    if(picks.length)lines.push(t.m_like+": "+picks.map(nameOf).join(", "));
+    lines.push(t.m_pk+": "+t["pk_"+pk]+(price?" ("+price+")":""));
+    if(msg)lines.push(t.m_me+": "+msg);
+    var text=lines.join("\n"),url;
     if(BOT){url="https://t.me/"+BOT+"?start="+("p_"+(picks.join("-")||"none")+"_"+pk+"_"+lang).slice(0,64);$("reqOk").textContent=t.sent_bot}
     else{url="https://t.me/Didera_Web?text="+encodeURIComponent(text);$("reqOk").textContent=t.sent_copy;
       try{navigator.clipboard.writeText(text)}catch(x){}}
