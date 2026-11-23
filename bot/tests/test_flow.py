@@ -59,3 +59,10 @@ async def main():
     s=await run("random text mid-flow + prices", [msg("/start"), msg("???"), msg("/prices")])
     print(open(os.path.join(os.environ["DATA_DIR"],"leads.csv")).read())
 asyncio.run(main())
+
+async def more():
+    s=await run("from site: 2 projects + bot package", [msg("/start p_iryna-aurea_bot_uk"), msg("Студія йоги, хочу запис онлайн"), msg("Пропустити →"), cb("send")])
+    assert any(getattr(m,'chat_id',None)==999 and "IRYNA BODLAK, AUREA" in m.text and "йоги" in m.text for m in s.sent if getattr(m,'text',None))
+    s=await run("from site: no projects", [msg("/start p_none_site_en"), msg("Bakery"), msg("me@x.com"), cb("send")])
+    print("MORE_OK")
+asyncio.run(more())

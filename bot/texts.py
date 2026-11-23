@@ -22,6 +22,7 @@ PROJECTS = {
 
 T = {
     "uk": {
+        "hello_site": "Привіт! Дякую, що зазирнули в портфоліо 🤍 Кілька коротких питань, і заявка готова.",
         "hello": "Привіт! Я помічниця DIDÉRA 🤍\nДопоможу залишити заявку на сайт або Telegram-бота. Це займе хвилину.\n\nЩо вам ближче?",
         "hello_project": "Привіт! Бачу, вам сподобався проєкт <b>{project}</b> 🤍\nЗробимо щось подібне для вас. Кілька коротких питань.",
         "m_like": "🖼 Хочу сайт, як у портфоліо",
@@ -53,6 +54,7 @@ T = {
         "use_buttons": "Скористайтеся кнопками нижче 👇",
     },
     "ru": {
+        "hello_site": "Привет! Спасибо, что заглянули в портфолио 🤍 Пара коротких вопросов, и заявка готова.",
         "hello": "Привет! Я помощница DIDÉRA 🤍\nПомогу оставить заявку на сайт или Telegram-бота. Это займёт минуту.\n\nЧто вам ближе?",
         "hello_project": "Привет! Вижу, вам понравился проект <b>{project}</b> 🤍\nСделаем что-то похожее для вас. Несколько коротких вопросов.",
         "m_like": "🖼 Хочу сайт, как в портфолио",
@@ -84,6 +86,7 @@ T = {
         "use_buttons": "Воспользуйтесь кнопками ниже 👇",
     },
     "cs": {
+        "hello_site": "Ahoj! Díky, že jste se podívali do portfolia 🤍 Pár krátkých otázek a poptávka je hotová.",
         "hello": "Ahoj! Jsem asistentka DIDÉRA 🤍\nPomůžu vám poslat poptávku na web nebo Telegram bota. Zabere to minutu.\n\nCo je vám bližší?",
         "hello_project": "Ahoj! Vidím, že se vám líbí projekt <b>{project}</b> 🤍\nUděláme pro vás něco podobného. Pár krátkých otázek.",
         "m_like": "🖼 Chci web jako v portfoliu",
@@ -115,6 +118,7 @@ T = {
         "use_buttons": "Použijte prosím tlačítka níže 👇",
     },
     "en": {
+        "hello_site": "Hi! Thanks for looking through the portfolio 🤍 A few quick questions and your request is ready.",
         "hello": "Hi! I'm the DIDÉRA assistant 🤍\nI'll help you send a request for a website or a Telegram bot. It takes a minute.\n\nWhat fits you best?",
         "hello_project": "Hi! I see you liked <b>{project}</b> 🤍\nLet's make something like it for you. A few quick questions.",
         "m_like": "🖼 A site like one in the portfolio",

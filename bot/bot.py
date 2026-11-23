@@ -81,18 +81,27 @@ async def start(m: Message, state: FSMContext, command: CommandObject):
     old = await state.get_data()
     await state.clear()
     L = old.get("lang") or pick_lang(m.from_user.language_code)
-    # deep link: ?start=p_iryna or ?start=p_iryna_ru or ?start=ru
+    # deep link: ?start=p_iryna · p_iryna_ru · p_iryna-aurea_bot_uk · p_none_site_cs
     arg = (command.args or "").strip().lower()
     parts = arg.split("_") if arg else []
     if parts and parts[-1] in LANGS:
         L = parts.pop()
+    pk = parts.pop() if len(parts) >= 3 and parts[-1] in ("site", "bot", "unsure") else None
     await state.update_data(lang=L, media=[])
-    if len(parts) >= 2 and parts[0] == "p" and parts[1] in PROJECTS:
-        slug = parts[1]
-        await state.update_data(kind="like", project=slug)
-        await m.answer(t(L, "hello_project", project=PROJECTS[slug]))
-        await state.set_state(Lead.package)
-        await m.answer(t(L, "package"), reply_markup=package_kb(L))
+    if len(parts) >= 2 and parts[0] == "p":
+        slugs = [x for x in parts[1].split("-") if x in PROJECTS]
+        names = ", ".join(PROJECTS[x] for x in slugs)
+        await state.update_data(kind="like" if slugs else "own", project=",".join(slugs), package=pk)
+        if slugs:
+            await m.answer(t(L, "hello_project", project=names))
+        else:
+            await m.answer(t(L, "hello_site"))
+        if pk:
+            await state.set_state(Lead.describe)
+            await m.answer(t(L, "describe"))
+        else:
+            await state.set_state(Lead.package)
+            await m.answer(t(L, "package"), reply_markup=package_kb(L))
         return
     await state.set_state(Lead.menu)
     await m.answer(t(L, "hello"), reply_markup=menu_kb(L))
@@ -164,6 +173,9 @@ async def got_description(m: Message, state: FSMContext):
     d = await state.get_data()
     desc = "\n".join(x for x in [d.get("desc", ""), message_text(m) or ("🎤/📎" if not m.text else "")] if x)
     await state.update_data(desc=desc, media=remember_media(d, m))
+    if d.get("package"):
+        await ask_contact(m, state, L)
+        return
     await state.set_state(Lead.package)
     await m.answer(t(L, "package"), reply_markup=package_kb(L))
 
@@ -231,7 +243,7 @@ def lead_body(d: dict, L: str, user) -> str:
     e = html.escape
     kind = d.get("kind")
     if kind == "like":
-        what = t(L, "f_like", p=PROJECTS.get(d.get("project"), d.get("project", "")))
+        what = t(L, "f_like", p=", ".join(PROJECTS.get(x, x) for x in (d.get("project") or "").split(",") if x))
     elif kind == "own":
         what = t(L, "f_own")
     else:

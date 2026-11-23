@@ -68,7 +68,7 @@ h1,h2,h3{font-weight:400;text-wrap:balance}
 .sit{position:absolute;right:7%;bottom:calc(100% - 13px);width:21%;pointer-events:none;opacity:0;transform:translateY(20px);transition:opacity .4s,transform .5s cubic-bezier(.3,1.5,.5,1)}
 .plane.on .sit{opacity:1;transform:none}
 .sit img{display:block;width:100%;height:auto;transform-origin:50% 100%;animation:sway 4.6s ease-in-out infinite}
-.say{position:absolute;right:88%;top:4%;width:max-content;max-width:210px;padding:8px 14px;border-radius:16px;background:rgba(44,37,34,.82);border:1px solid var(--line);font-size:14px;line-height:1.3;color:var(--cream);transform-origin:100% 100%;
+.say{position:absolute;right:88%;top:4%;width:max-content;max-width:250px;padding:9px 14px;border-radius:16px;background:rgba(44,37,34,.82);border:1px solid var(--line);font-size:14px;line-height:1.3;color:var(--cream);transform-origin:100% 100%;
   opacity:0;transform:scale(.6);transition:opacity .3s .35s,transform .45s .35s cubic-bezier(.3,1.6,.5,1)}
 .plane.on .say{opacity:1;transform:none}
 
@@ -92,6 +92,7 @@ h1,h2,h3{font-weight:400;text-wrap:balance}
 .bub{position:absolute;display:grid;place-items:center;padding:calc(var(--u)*8) calc(var(--u)*16);border:1px solid rgba(241,230,218,.55);border-radius:calc(var(--u)*24);background:rgba(58,49,45,.5);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
   font-size:calc(var(--u)*14.5);line-height:1.25;color:var(--cream);text-align:center;white-space:nowrap;animation:bub 10s ease-in-out infinite both;animation-delay:var(--d,0s)}
 .bub::after{content:"";position:absolute;bottom:calc(var(--u)*-7);left:var(--tail,60%);width:calc(var(--u)*12);height:calc(var(--u)*12);border-right:1px solid rgba(241,230,218,.55);border-bottom:1px solid rgba(241,230,218,.55);background:rgba(58,49,45,.6);transform:rotate(45deg) skew(12deg,12deg)}
+.bub.b1{display:none}
 @keyframes bub{0%{opacity:0;transform:scale(.5) translateY(10px)}6%{opacity:1;transform:scale(1.06)}10%,76%{opacity:1;transform:scale(1)}82%,100%{opacity:0;transform:scale(.7)}}
 
 .tg{position:absolute;left:calc(var(--u)*742);top:calc(var(--u)*712);width:calc(var(--u)*274);height:calc(var(--u)*52);display:flex;align-items:center;gap:calc(var(--u)*18);padding:0 calc(var(--u)*30) 0 calc(var(--u)*38);text-decoration:none;font-size:calc(var(--u)*21);color:var(--cream);transition:transform .25s}
@@ -127,6 +128,7 @@ h1,h2,h3{font-weight:400;text-wrap:balance}
 .b3:active{transform:translateY(3px);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 1px 0 #3c1019}
 .b3--line{background:rgba(58,49,45,.45);border:1px solid rgba(241,230,218,.55);box-shadow:0 4px 0 rgba(20,14,12,.55),0 12px 22px rgba(0,0,0,.35);backdrop-filter:blur(4px)}
 .b3 svg{width:calc(var(--u)*19);height:calc(var(--u)*19);flex:none}
+.intro{max-width:calc(var(--u)*400);margin-top:calc(var(--u)*12);font-size:calc(var(--u)*14.5);line-height:1.5;color:#e8dcd1;transform:translateZ(calc(var(--u)*18));animation:fadeUp 1s .85s both}
 .go{display:inline-flex;gap:calc(var(--u)*14);margin-top:calc(var(--u)*20);padding-bottom:4px;border-bottom:1px solid var(--wine-hi);font-size:calc(var(--u)*13.5);text-decoration:none;transform:translateZ(calc(var(--u)*20));animation:fadeUp 1s 1.2s both}
 .go i{font-style:normal;animation:nudge 2.2s ease-in-out infinite}
 @keyframes fadeUp{from{opacity:0;translate:0 14px}}
@@ -178,7 +180,41 @@ h1,h2,h3{font-weight:400;text-wrap:balance}
 .talk__grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:end}
 .talk h2 em{font-style:italic}
 .talk p{margin-top:18px;max-width:46ch;color:#e8dcd1}
-.reach{display:grid;gap:14px}
+.reach{display:grid;gap:12px;margin-top:16px}
+.phone a{text-decoration:none;font-variant-numeric:tabular-nums}
+.picks{margin-top:26px}
+.picks__h{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#e3a5ad;margin-bottom:10px}
+.picks__list{display:flex;flex-wrap:wrap;gap:8px;color:var(--mute);font-size:14px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:6px 8px 6px 14px;border:1px solid var(--line);border-radius:30px;background:rgba(122,36,51,.35);color:var(--cream);font:500 14px var(--body)}
+.chip button{all:unset;cursor:pointer;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;color:var(--mute)}
+.chip button:hover{background:rgba(241,230,218,.12);color:var(--cream)}
+.req{display:grid;gap:16px;padding:26px;border:1px solid var(--line);border-radius:18px;background:rgba(26,21,20,.45);backdrop-filter:blur(8px)}
+.pk{border:0;margin:0;padding:0;display:grid;gap:8px}
+.pk legend{padding:0;margin-bottom:10px;font:400 26px/1.15 var(--display)}
+.pk label{cursor:pointer}
+.pk input{position:absolute;opacity:0;pointer-events:none}
+.pk label>span{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;transition:border-color .2s,background .2s,transform .15s}
+.pk label:active>span{transform:scale(.99)}
+.pk b{font-weight:500}
+.pk i{font-style:normal;color:var(--mute);white-space:nowrap;font-variant-numeric:tabular-nums}
+.pk input:checked+span{border-color:var(--wine-hi);background:rgba(122,36,51,.45)}
+.pk input:checked+span i{color:var(--cream)}
+.pk input:focus-visible+span{outline:2px solid var(--cream);outline-offset:2px}
+.pk__note{font-size:13px;color:var(--mute);margin-top:-6px}
+.req__msg{display:grid;gap:8px;font-size:14px;color:var(--mute)}
+.req textarea{font:inherit;font-size:15px;color:var(--cream);background:rgba(241,230,218,.05);border:1px solid var(--line);border-radius:12px;padding:12px 14px;resize:vertical;min-height:96px}
+.req textarea:focus{outline:2px solid var(--wine-hi);outline-offset:1px}
+.req .b3{--u:1px;justify-content:center;min-height:54px;font-size:15px;border:0;color:var(--cream);font-family:var(--body);cursor:pointer}
+.req__ok{font-size:14px;color:#e3a5ad;min-height:1.2em}
+.like{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 16px;border-radius:12px;border:1px solid rgba(241,230,218,.55);font-size:14px;transition:background .2s,border-color .2s,transform .15s}
+.like:hover{background:rgba(241,230,218,.08)}
+.like:active{transform:scale(.97)}
+.like[aria-pressed="true"]{background:rgba(162,58,75,.35);border-color:var(--wine-hi)}
+.like:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
+.like i{font-style:normal;color:#e3a5ad;font-size:16px;line-height:1}
+.card__stop{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.tall .like{min-height:44px;padding:0 13px;font-size:13px}
+.talk__grid{align-items:start!important}
 .reach .b3{--u:1px;justify-content:center;min-height:54px;font-size:15px;white-space:normal}
 .phone{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 8px 10px 18px;border:1px solid var(--line);border-radius:14px}
 .phone span{user-select:all;font-variant-numeric:tabular-nums}
@@ -192,10 +228,11 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
 .tall .ui{top:0!important;bottom:0;height:auto!important}
 .tall .col{--u:1px;left:var(--gut-l);right:var(--gut-r);top:auto;bottom:calc(20px + env(safe-area-inset-bottom,0px));width:auto;transform:none}
 .tall .col::before{content:"";position:absolute;inset:-110px calc(var(--gut-l) * -1) -30px;background:linear-gradient(180deg,transparent,rgba(26,21,20,.9) 34%);z-index:-1}
-.tall .mast{font-size:clamp(50px,16vw,92px)}
+.tall .mast{font-size:clamp(44px,13vw,80px)}
 .tall .bar{width:66px;height:4px;margin:2px 0 10px}
-.tall .tag{font-size:clamp(22px,6.2vw,30px);text-shadow:0 1px 0 #66544d,0 3px 10px rgba(0,0,0,.55)}
-.tall .tags{font-size:12px;margin-top:9px;gap:2px 10px}
+.tall .tag{font-size:clamp(21px,5.8vw,28px);text-shadow:0 1px 0 #66544d,0 3px 10px rgba(0,0,0,.55)}
+.tall .tags{display:none}
+.tall .intro{font-size:14px;line-height:1.45;margin-top:8px;max-width:none}
 .tall .acts0{margin-top:14px;flex-wrap:wrap}
 .tall .b3{min-height:46px;font-size:13px;padding:0 13px;gap:9px;border-radius:12px}
 .tall .b3 svg{width:17px;height:17px}
@@ -203,7 +240,7 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
 .tall .cards,.tall .howto,.tall .tg{display:none}
 .tall .plane{width:86vw;margin-left:-43vw;margin-top:-30vw}
 .tall .win__bar{height:24px}
-.tall .say{right:92%;font-size:13px;max-width:150px}
+.tall .say{right:84%;font-size:12.5px;max-width:190px;width:max-content}
 .tall .hud{left:var(--gut-l);right:var(--gut-r);top:auto;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:auto;transform:none}
 .tall .card{align-self:end;gap:8px;padding:18px}
 .tall .card h2{font-size:clamp(28px,8.4vw,42px);text-shadow:0 1px 0 #66544d,0 4px 12px rgba(0,0,0,.5)}
@@ -271,15 +308,16 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
           <div class="col" id="col">
             <h1 class="mast" id="mast" aria-label="DIDÉRA"></h1>
             <div class="bar" aria-hidden="true"></div>
-            <p class="tag d3-s"><span data-t="tag1"></span><em data-t="tag2"></em></p>
+            <p class="tag d3-s"><span data-t="hi1"></span><em data-t="hi2"></em></p>
+            <p class="intro" data-t="intro"></p>
             <p class="tags"><span>Websites</span><i>·</i><span>Automation</span><i>·</i><span>Telegram Bots</span><i>·</i><span>Digital Experience</span></p>
             <div class="acts0">
-              <a class="b3" href="https://t.me/Didera_Web" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M22 3 2 11l6.5 2.5L18 6l-7 9v5l3.5-4 4 3z"/></svg>
-                <span data-t="cta_tg"></span> <span aria-hidden="true">→</span></a>
-              <a class="b3 b3--line" href="#talk" id="callBtn">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.8a13 13 0 0 0 5.7 5.7L16 13l5 2v4a2 2 0 0 1-2.2 2A17 17 0 0 1 3 5.2 2 2 0 0 1 5 3z"/></svg>
-                <span data-t="cta_call"></span></a>
+              <a class="b3" href="#talk" data-lead>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="m13.5 6.5 4 4"/></svg>
+                <span data-t="lead"></span> <span aria-hidden="true">→</span></a>
+              <a class="b3 b3--line" href="#index" id="tourBtn">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+                <span data-t="tour_go"></span></a>
             </div>
             <a class="go" href="#index" id="toWorks"><span data-t="cta_works"></span> <i aria-hidden="true">→</i></a>
           </div>
@@ -318,11 +356,28 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
         <div>
           <h2 class="d3-s"><span data-t="talk1"></span> <em data-t="talk2"></em></h2>
           <p data-t="talk3"></p>
+          <div class="picks">
+            <div class="picks__h" data-t="picks_h"></div>
+            <div class="picks__list" id="picks"></div>
+          </div>
         </div>
-        <div class="reach">
-          <a class="b3" id="leadBtn" href="#" target="_blank" rel="noopener" hidden><span data-t="lead"></span> <span aria-hidden="true">↗</span></a>
-          <a class="b3" id="tgBtn" href="https://t.me/Didera_Web" target="_blank" rel="noopener"><span data-t="cta_tg"></span> <span aria-hidden="true">↗</span></a>
-          <div class="phone"><span id="tel">+420 776 523 900</span><button type="button" id="copy" data-t="copy"></button></div>
+        <div class="side">
+        <form class="req" id="req">
+          <fieldset class="pk">
+            <legend data-t="pk_h"></legend>
+            <label><input type="radio" name="pk" value="site" checked><span><b data-t="pk_site"></b><i>250–350 €</i></span></label>
+            <label><input type="radio" name="pk" value="bot"><span><b data-t="pk_bot"></b><i>450–1100 €</i></span></label>
+            <label><input type="radio" name="pk" value="unsure"><span><b data-t="pk_unsure"></b><i data-t="pk_unsure2"></i></span></label>
+          </fieldset>
+          <p class="pk__note" data-t="pk_note"></p>
+          <label class="req__msg"><span data-t="msg_h"></span><textarea id="msg" rows="4"></textarea></label>
+          <button class="b3" type="submit"><span data-t="lead"></span> <span aria-hidden="true">↗</span></button>
+          <p class="req__ok" id="reqOk" role="status" aria-live="polite"></p>
+        </form>
+            <div class="reach">
+              <a class="b3 b3--line" href="https://t.me/Didera_Web" target="_blank" rel="noopener"><span data-t="cta_tg"></span> <span aria-hidden="true">↗</span></a>
+              <div class="phone"><a id="tel" href="tel:+420776523900">+420 776 523 900</a><button type="button" id="copy" data-t="copy"></button></div>
+            </div>
         </div>
       </div>
       <footer><span>Created by DIDÉRA</span><span>Digital Luxury Experiences</span></footer>
@@ -334,85 +389,85 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
 (function(){
   /* ---------- Words ---------- */
   var T={
-    uk:{nav_works:"Проєкти",nav_contact:"Контакти",
+    uk:{nav_works:"Проєкти",nav_contact:"Заявка",
       tag1:"Вебсайти, автоматизація та цифрові рішення,",tag2:"які закохують у себе.",
-      cta_tg:"Напиши мені в Telegram",cta_call:"Подзвони",cta_works:"Перейти до проєктів",
+      cta_tg:"Напиши мені в Telegram",cta_call:"Подзвони",cta_works:"Усі проєкти списком",
       c1:"Сайти, які продають",c2:"Автоматизація",c3:"Telegram-боти",c4:"Рішення під ключ",
-      howto:"Подивись, як це працює",all:"Усі роботи",talk1:"Наступним може бути",talk2:"твій сайт",
-      talk3:"Напиши, що в тебе за справа, і я скажу, як це може виглядати.",copy:"Скопіювати",copied:"Скопійовано",
-      live:"Живий проєкт",concept:"Концепт",site:"Сайт",open:"Відкрити",opensite:"Відкрити сайт",openbot:"Відкрити бота",enter:"Увійти на сайт",run:"Запустити досвід",fresh:"Новий проєкт",want:"Хочу такий",lead:"Залишити заявку"},
-    ru:{nav_works:"Проекты",nav_contact:"Контакты",
+      howto:"Екскурсія з Діаною",all:"Усі роботи",talk1:"Наступним може бути",talk2:"твій сайт",
+      talk3:"Обери пакет, напиши пару слів про свою справу, і я скоро відповім.",copy:"Скопіювати",copied:"Скопійовано",
+      live:"Живий проєкт",concept:"Концепт",site:"Сайт",open:"Відкрити",opensite:"Відкрити сайт",openbot:"Відкрити бота",enter:"Увійти на сайт",run:"Запустити досвід",fresh:"Новий проєкт",want:"Хочу такий",lead:"Залишити заявку",hi1:"Привіт, я Діана.",hi2:"Вітаю у моєму світі веб-сторінок.",intro:"Кейсів поки небагато, і кожен зроблений так, щоб у нього закохувались. Ходімо на екскурсію: я сяду на кожен сайт і розповім про нього. А в кінці ти залишиш заявку на свій.",tour_go:"Почати екскурсію",tour:"Екскурсія",like:"Хочу такий",liked:"Додано в заявку",picks_h:"Тобі сподобались",picks_none:"Під час екскурсії тисни ♡ «Хочу такий», і проєкти з'являться тут.",pk_h:"Що тобі потрібно?",pk_site:"Сайт",pk_bot:"Сайт + Telegram-бот",pk_unsure:"Ще не знаю",pk_unsure2:"порадь мені",pk_note:"Ціни орієнтовні. Точну суму скажу, коли поговоримо.",msg_h:"Розкажи пару слів про свою справу і який сайт хочеш",sent_copy:"Відкриваю Telegram. Текст заявки вже скопійовано, просто встав його в чат і надішли 🤍",sent_bot:"Відкриваю бота, він підхопить твою заявку 🤍",m_hi:"Привіт, Діано! Хочу залишити заявку.",m_like:"Сподобались",m_pk:"Пакет",m_me:"Про мене"},
+    ru:{nav_works:"Проекты",nav_contact:"Заявка",
       tag1:"Сайты, автоматизация и цифровые решения,",tag2:"в которые влюбляются.",
-      cta_tg:"Напиши мне в Telegram",cta_call:"Позвони",cta_works:"Перейти к проектам",
+      cta_tg:"Напиши мне в Telegram",cta_call:"Позвони",cta_works:"Все проекты списком",
       c1:"Сайты, которые продают",c2:"Автоматизация",c3:"Telegram-боты",c4:"Решения под ключ",
-      howto:"Посмотри, как это работает",all:"Все работы",talk1:"Следующим может быть",talk2:"твой сайт",
-      talk3:"Напиши, чем ты занимаешься, и я покажу, как это может выглядеть.",copy:"Скопировать",copied:"Скопировано",
-      live:"Живой проект",concept:"Концепт",site:"Сайт",open:"Открыть",opensite:"Открыть сайт",openbot:"Открыть бота",enter:"Войти на сайт",run:"Запустить опыт",fresh:"Новый проект",want:"Хочу такой",lead:"Оставить заявку"},
-    cs:{nav_works:"Projekty",nav_contact:"Kontakt",
+      howto:"Экскурсия с Дианой",all:"Все работы",talk1:"Следующим может быть",talk2:"твой сайт",
+      talk3:"Выбери пакет, напиши пару слов о своём деле, и я скоро отвечу.",copy:"Скопировать",copied:"Скопировано",
+      live:"Живой проект",concept:"Концепт",site:"Сайт",open:"Открыть",opensite:"Открыть сайт",openbot:"Открыть бота",enter:"Войти на сайт",run:"Запустить опыт",fresh:"Новый проект",want:"Хочу такой",lead:"Оставить заявку",hi1:"Привет, я Диана.",hi2:"Добро пожаловать в мой мир веб-страниц.",intro:"Кейсов пока немного, и каждый сделан так, чтобы в него влюблялись. Пойдём на экскурсию: я сяду на каждый сайт и расскажу о нём. А в конце ты оставишь заявку на свой.",tour_go:"Начать экскурсию",tour:"Экскурсия",like:"Хочу такой",liked:"Добавлено в заявку",picks_h:"Тебе понравились",picks_none:"Во время экскурсии жми ♡ «Хочу такой», и проекты появятся здесь.",pk_h:"Что тебе нужно?",pk_site:"Сайт",pk_bot:"Сайт + Telegram-бот",pk_unsure:"Пока не знаю",pk_unsure2:"подскажи мне",pk_note:"Цены ориентировочные. Точную сумму скажу, когда поговорим.",msg_h:"Расскажи пару слов о своём деле и какой сайт хочешь",sent_copy:"Открываю Telegram. Текст заявки уже скопирован, просто вставь его в чат и отправь 🤍",sent_bot:"Открываю бота, он подхватит твою заявку 🤍",m_hi:"Привет, Диана! Хочу оставить заявку.",m_like:"Понравились",m_pk:"Пакет",m_me:"О себе"},
+    cs:{nav_works:"Projekty",nav_contact:"Poptávka",
       tag1:"Weby, automatizace a digitální řešení,",tag2:"do kterých se zamilujete.",
-      cta_tg:"Napiš mi na Telegram",cta_call:"Zavolej mi",cta_works:"Přejít na projekty",
+      cta_tg:"Napiš mi na Telegram",cta_call:"Zavolej mi",cta_works:"Všechny projekty v seznamu",
       c1:"Weby, které prodávají",c2:"Automatizace",c3:"Telegram boti",c4:"Řešení na klíč",
-      howto:"Podívej se, jak to funguje",all:"Všechny projekty",talk1:"Další může být",talk2:"tvůj web",
-      talk3:"Napiš mi, čím se zabýváš, a já ti řeknu, jak by to mohlo vypadat.",copy:"Kopírovat",copied:"Zkopírováno",
-      live:"Živý projekt",concept:"Koncept",site:"Web",open:"Otevřít",opensite:"Otevřít web",openbot:"Otevřít bota",enter:"Vstoupit na web",run:"Spustit zážitek",fresh:"Nový projekt",want:"Chci podobný",lead:"Poslat poptávku"},
-    en:{nav_works:"Projects",nav_contact:"Contact",
+      howto:"Prohlídka s Dianou",all:"Všechny projekty",talk1:"Další může být",talk2:"tvůj web",
+      talk3:"Vyber balíček, napiš pár slov o svém podnikání a brzy se ozvu.",copy:"Kopírovat",copied:"Zkopírováno",
+      live:"Živý projekt",concept:"Koncept",site:"Web",open:"Otevřít",opensite:"Otevřít web",openbot:"Otevřít bota",enter:"Vstoupit na web",run:"Spustit zážitek",fresh:"Nový projekt",want:"Chci podobný",lead:"Poslat poptávku",hi1:"Ahoj, jsem Diana.",hi2:"Vítej v mém světě webových stránek.",intro:"Projektů zatím není moc, ale každý je udělaný tak, aby se do něj lidé zamilovali. Pojď na prohlídku: sednu si na každý web a povím ti o něm. A na konci mi pošleš poptávku na ten svůj.",tour_go:"Začít prohlídku",tour:"Prohlídka",like:"Chci podobný",liked:"Přidáno do poptávky",picks_h:"Líbí se ti",picks_none:"Během prohlídky klikni na ♡ „Chci podobný“ a projekty se objeví tady.",pk_h:"Co potřebuješ?",pk_site:"Web",pk_bot:"Web + Telegram bot",pk_unsure:"Ještě nevím",pk_unsure2:"poraď mi",pk_note:"Ceny jsou orientační. Přesnou částku řeknu, až si promluvíme.",msg_h:"Napiš pár slov o svém podnikání a jaký web chceš",sent_copy:"Otevírám Telegram. Text poptávky je zkopírovaný, stačí ho vložit do chatu a odeslat 🤍",sent_bot:"Otevírám bota, poptávku převezme 🤍",m_hi:"Ahoj Diano! Chci poslat poptávku.",m_like:"Líbí se mi",m_pk:"Balíček",m_me:"O mně"},
+    en:{nav_works:"Projects",nav_contact:"Request",
       tag1:"Websites, automation and digital solutions",tag2:"people fall in love with.",
-      cta_tg:"Message me on Telegram",cta_call:"Call me",cta_works:"See the projects",
+      cta_tg:"Message me on Telegram",cta_call:"Call me",cta_works:"All projects as a list",
       c1:"Websites that sell",c2:"Automation",c3:"Telegram bots",c4:"Turnkey solutions",
-      howto:"See how it works",all:"All projects",talk1:"The next one could be",talk2:"your site",
-      talk3:"Tell me about your business and I'll show you how it could look.",copy:"Copy",copied:"Copied",
-      live:"Live project",concept:"Concept",site:"Website",open:"Open",opensite:"Open site",openbot:"Open bot",enter:"Enter site",run:"Start the experience",fresh:"New project",want:"I want one like this",lead:"Send a request"}
+      howto:"A tour with Diana",all:"All projects",talk1:"The next one could be",talk2:"your site",
+      talk3:"Pick a package, write a few words about your business, and I'll reply soon.",copy:"Copy",copied:"Copied",
+      live:"Live project",concept:"Concept",site:"Website",open:"Open",opensite:"Open site",openbot:"Open bot",enter:"Enter site",run:"Start the experience",fresh:"New project",want:"I want one like this",lead:"Send a request",hi1:"Hi, I'm Diana.",hi2:"Welcome to my world of web pages.",intro:"There aren't many cases yet, and each one is made for people to fall in love with. Let's take a tour: I'll sit on every site and tell you about it. At the end, you can send a request for yours.",tour_go:"Start the tour",tour:"Tour",like:"I want one",liked:"Added to request",picks_h:"You liked",picks_none:"During the tour, tap ♡ “I want one” and the projects will show up here.",pk_h:"What do you need?",pk_site:"Website",pk_bot:"Website + Telegram bot",pk_unsure:"Not sure yet",pk_unsure2:"advise me",pk_note:"Prices are approximate. I'll name the exact figure after we talk.",msg_h:"Tell me a few words about your business and the site you want",sent_copy:"Opening Telegram. Your request is copied, just paste it into the chat and send 🤍",sent_bot:"Opening the bot, it will pick up your request 🤍",m_hi:"Hi Diana! I'd like to send a request.",m_like:"I liked",m_pk:"Package",m_me:"About me"}
   };
   var works=[
     {name:"MARINEK",slug:"marinek",type:"live",bar:"marinaekfitness.com",img:"images/marinek.webp",room:"#7a2433",
      kind:{uk:"Сайт + Telegram-бот",ru:"Сайт + Telegram-бот",cs:"Web + Telegram bot",en:"Site + Telegram bot"},
      text:{uk:"Авторські фітнес-курси. Сайт веде в бота, а бот сам приймає оплату, відкриває доступ до відео й складає меню харчування.",ru:"Авторские фитнес-курсы. Сайт ведёт в бота, а бот сам принимает оплату, открывает доступ к видео и составляет меню питания.",cs:"Autorské fitness kurzy. Web vede k botovi a bot sám přijme platbu, otevře videa a sestaví jídelníček.",en:"Signature fitness courses. The site leads to a bot that takes payment, unlocks the videos and builds a meal plan by itself."},
-     say:{uk:"Бот працює сам, 24/7",ru:"Бот работает сам, 24/7",cs:"Bot jede sám, 24/7",en:"The bot runs itself, 24/7"},
+     say:{uk:"Тут бот сам продає курси, навіть уночі",ru:"Здесь бот сам продаёт курсы, даже ночью",cs:"Tady bot prodává kurzy sám, i v noci",en:"Here the bot sells courses by itself, even at night"},
      links:[["opensite","https://marinaekfitness.com"],["openbot","https://t.me/marinek_fit_courses_bot"]]},
     {name:"MISTR FIX",slug:"mistrfix",type:"live",bar:"mistrfix.cz",img:"images/mistrfix.webp",room:"#5a4a42",
      kind:{uk:"Сервіс у Пльзені",ru:"Сервис в Пльзене",cs:"Servis v Plzni",en:"Service in Plzeň"},
      text:{uk:"Мобільний сервіс ремонту. Людина надсилає фото проблеми або дзвонить просто з першого екрана.",ru:"Мобильный сервис ремонта. Человек отправляет фото проблемы или звонит прямо с первого экрана.",cs:"Mobilní servis oprav. Zákazník pošle fotku problému nebo zavolá přímo z první obrazovky.",en:"A mobile repair service. Customers send a photo of the problem or call right from the first screen."},
-     say:{uk:"Фотка. Виїзд. Готово.",ru:"Фотка. Выезд. Готово.",cs:"Fotka. Výjezd. Hotovo.",en:"Photo. Visit. Done."},
+     say:{uk:"Одне фото, і майстер уже їде",ru:"Одно фото, и мастер уже едет",cs:"Jedna fotka a technik už jede",en:"One photo and the repairman is on the way"},
      links:[["opensite","https://mistrfix.cz"]]},
     {name:"MAISON ROUGE",slug:"maison",type:"concept",bar:"maison-rouge",img:"images/maison.webp",room:"#7a2433",
      kind:{uk:"5D SPA",ru:"5D SPA",cs:"5D SPA",en:"5D SPA"},
      text:{uk:"Приватний SPA, у який входиш як у кіно: глибина, сцени й заявка на ритуал.",ru:"Приватный SPA, в который входишь как в кино: глубина, сцены и заявка на ритуал.",cs:"Soukromé SPA, do kterého vstoupíte jako do filmu: hloubka, scény a rezervace rituálu.",en:"A private SPA you enter like a film: depth, scenes and a ritual booking request."},
-     say:{uk:"Зайди, тут красиво",ru:"Заходи, здесь красиво",cs:"Pojď dál, je tu krásně",en:"Come in, it's beautiful"},
+     say:{uk:"Заходь, тут кожен скрол як сцена з кіно",ru:"Заходи, здесь каждый скролл как сцена из кино",cs:"Pojď dál, každý scroll je tu jako scéna z filmu",en:"Come in, every scroll here is a film scene"},
      links:[["enter","works/maison-rouge.html"]]},
     {name:"ALLORO",slug:"alloro",type:"site",bar:"alloro-prague",img:"images/alloro.webp",room:"#5a4a42",
      kind:{uk:"Ресторан у Празі",ru:"Ресторан в Праге",cs:"Restaurace v Praze",en:"Restaurant in Prague"},
      text:{uk:"Повне меню й бронювання столика чотирма мовами.",ru:"Полное меню и бронирование столика на четырёх языках.",cs:"Kompletní menu a rezervace stolu ve čtyřech jazycích.",en:"A full menu and table booking in four languages."},
-     say:{uk:"Столик уже чекає",ru:"Столик уже ждёт",cs:"Stůl už čeká",en:"Your table is waiting"},
+     say:{uk:"Меню й столик чотирма мовами, без дзвінків",ru:"Меню и столик на четырёх языках, без звонков",cs:"Menu a stůl ve čtyřech jazycích, bez volání",en:"Menu and a table in four languages, no calls"},
      links:[["opensite","https://alloro-prague-reservations.ruby-rice-9201.chatgpt.site/"]]},
     {name:"The Donut Experience",slug:"donut",type:"concept",bar:"the-donut-experience",img:"images/donut.webp",room:"#7a2433",
      kind:{uk:"3D-фільм",ru:"3D-фильм",cs:"3D film",en:"3D film"},
      text:{uk:"Донат, який розкривається під час скролу: шари, шоколад, рентген і п'ять смаків.",ru:"Пончик, который раскрывается при скролле: слои, шоколад, рентген и пять вкусов.",cs:"Donut, který se odhaluje při scrollování: vrstvy, čokoláda, rentgen a pět chutí.",en:"A donut that opens up as you scroll: layers, chocolate, X-ray and five flavours."},
-     say:{uk:"Гортай повільно",ru:"Листай медленно",cs:"Scrolluj pomalu",en:"Scroll slowly"},
+     say:{uk:"Гортай повільно, і донат розкриється",ru:"Листай медленно, и пончик раскроется",cs:"Scrolluj pomalu a donut se otevře",en:"Scroll slowly and the donut opens up"},
      links:[["run","works/donut.html"]]},
     {name:"Raspberry Atelier",slug:"raspberry",type:"concept",bar:"didera-raspberry-atelier",img:"images/raspberry.webp",room:"#5a4a42",
      kind:{uk:"Малина в шоколаді",ru:"Малина в шоколаде",cs:"Malina v čokoládě",en:"Raspberry in chocolate"},
      text:{uk:"Десерт як ритуал: три колекції й конструктор власного набору.",ru:"Десерт как ритуал: три коллекции и конструктор своего набора.",cs:"Dezert jako rituál: tři kolekce a sestavení vlastního setu.",en:"Dessert as a ritual: three collections and a build-your-own set."},
-     say:{uk:"Обережно, смачно",ru:"Осторожно, вкусно",cs:"Pozor, chutná to",en:"Careful, it's delicious"},
+     say:{uk:"Тут збираєш свій набір. Обережно, смачно",ru:"Здесь собираешь свой набор. Осторожно, вкусно",cs:"Tady si složíš vlastní set. Pozor, chutná to",en:"Build your own set here. Careful, it's delicious"},
      links:[["opensite","https://didera-raspberry-atelier.ruby-rice-9201.chatgpt.site/"]]},
     {name:"AUREA",slug:"aurea",type:"concept",bar:"aurea-transformation",img:"images/aurea.webp",room:"#7a2433",
      kind:{uk:"Рух і харчування",ru:"Движение и питание",cs:"Pohyb a výživa",en:"Movement and nutrition"},
      text:{uk:"Мистецтво трансформації: кінематографічний сайт із тестом «Знайти свій ритуал».",ru:"Искусство трансформации: кинематографичный сайт с тестом «Найди свой ритуал».",cs:"Umění proměny: filmový web s testem „Najdi svůj rituál“.",en:"The art of transformation: a cinematic site with a “Find your ritual” quiz."},
-     say:{uk:"Знайди свій ритуал",ru:"Найди свой ритуал",cs:"Najdi svůj rituál",en:"Find your ritual"},
+     say:{uk:"Пройди тест і знайди свій ритуал",ru:"Пройди тест и найди свой ритуал",cs:"Udělej test a najdi svůj rituál",en:"Take the quiz and find your ritual"},
      links:[["opensite","https://aurea-transformation.ruby-rice-9201.chatgpt.site/"]]},
     {name:"Woodspace",slug:"woodspace",type:"site",bar:"woodspace-mukachevo",img:"images/woodspace.webp",room:"#5a4a42",
      kind:{uk:"Будинок у лісі",ru:"Дом в лесу",cs:"Dům v lese",en:"House in the forest"},
      text:{uk:"Приватний wellness-будинок біля Мукачева: сауна, чан, басейн і заявка на бронювання.",ru:"Приватный wellness-дом возле Мукачево: сауна, чан, бассейн и заявка на бронирование.",cs:"Soukromý wellness dům u Mukačeva: sauna, káď, bazén a rezervace.",en:"A private wellness house near Mukachevo: sauna, hot tub, pool and booking requests."},
-     say:{uk:"Тут дуже тихо",ru:"Здесь очень тихо",cs:"Tady je ticho",en:"It's so quiet here"},
+     say:{uk:"Сауна, чан і ліс. Навіть сайт тут тихий",ru:"Сауна, чан и лес. Даже сайт здесь тихий",cs:"Sauna, káď a les. I web je tu tichý",en:"Sauna, hot tub, forest. Even the site is quiet"},
      links:[["opensite","https://woodspace-mukachevo.ruby-rice-9201.chatgpt.site/"]]},
     {name:"PYLYPIAK",slug:"pylypiak",type:"site",bar:"pylypiak-veronichka",img:"images/pylypiak.webp",room:"#7a2433",
      kind:{uk:"Особистий бренд",ru:"Личный бренд",cs:"Osobní značka",en:"Personal brand"},
      text:{uk:"Сайт відеомейкерки: роботи, послуги, Instagram і заявка на проєкт.",ru:"Сайт видеомейкера: работы, услуги, Instagram и заявка на проект.",cs:"Web videomakerky: práce, služby, Instagram a poptávka projektu.",en:"A videomaker's site: work, services, Instagram and project requests."},
-     say:{uk:"Контент, який працює",ru:"Контент, который работает",cs:"Obsah, který funguje",en:"Content that works"},
+     say:{uk:"Тут роботи відеомейкерки самі збирають заявки",ru:"Здесь работы видеомейкера сами собирают заявки",cs:"Tady práce videomakerky samy sbírají poptávky",en:"Here a videomaker's work collects requests by itself"},
      links:[["opensite","https://pylypiak-veronichka.ruby-rice-9201.chatgpt.site/"]]},
     {name:"IRYNA BODLAK",slug:"iryna",type:"fresh",bar:"iryna-bodlak · the art of growth",img:"images/iryna.webp",room:"#7a2433",
      kind:{uk:"Нумерологиня · особистий бренд",ru:"Нумеролог · личный бренд",cs:"Numeroložka · osobní značka",en:"Numerologist · personal brand"},
      text:{uk:"Сайт практикуючої нумерологині: послуги для людей і бізнесу, історія, дипломи, запис на консультацію. П'ять мов.",ru:"Сайт практикующего нумеролога: услуги для людей и бизнеса, история, дипломы, запись на консультацию. Пять языков.",cs:"Web praktikující numeroložky: služby pro lidi i firmy, příběh, diplomy a objednání konzultace. Pět jazyků.",en:"A practising numerologist's site: services for people and business, her story, diplomas and consultation booking. Five languages."},
-     say:{uk:"Цифри знають більше",ru:"Цифры знают больше",cs:"Čísla vědí víc",en:"Numbers know more"},
+     say:{uk:"Мій найсвіжіший проєкт. Цифри знають більше",ru:"Мой самый свежий проект. Цифры знают больше",cs:"Můj nejčerstvější projekt. Čísla vědí víc",en:"My newest project. Numbers know more"},
      links:[["enter","works/iryna/index.html"]]}
   ];
 
@@ -444,7 +499,7 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
     {id:"mD",src:"images/mini-d.webp",x:1170,y:486,w:110,h:171,dz:6,n:"3s",clip:"polygon(0 0,76% 0,76% 54%,0 54%)",neck:"52% 50%"}
   ];
   var B=[
-    {tx:{uk:"Привіт, я знаю<br>як це зробити",ru:"Привет, я знаю,<br>как это сделать",cs:"Ahoj, vím,<br>jak na to",en:"Hi, I know<br>how to do it"},x:450,y:232,d:".6s",tail:"60%"},
+    {tx:{uk:"Привіт, я Діана!<br>Ходімо на екскурсію",ru:"Привет, я Диана!<br>Пойдём на экскурсию",cs:"Ahoj, jsem Diana!<br>Pojď na prohlídku",en:"Hi, I'm Diana!<br>Let's take a tour"},x:450,y:232,d:".6s",tail:"60%"},
     {tx:{uk:"Привіт, подзвони мені",ru:"Привет, позвони мне",cs:"Ahoj, zavolej mi",en:"Hi, call me"},x:338,y:566,d:"2.4s",tail:"26%"},
     {tx:{uk:"Привіт, напиши мені",ru:"Привет, напиши мне",cs:"Ahoj, napiš mi",en:"Hey, write me"},x:910,y:536,d:"4.2s",tail:"18%"}
   ];
@@ -483,20 +538,57 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
     var t=T[l];
     document.querySelectorAll(".bub .bt").forEach(function(e,i){e.innerHTML=B[i].tx[l]});
     document.querySelectorAll("[data-t]").forEach(function(e){e.textContent=t[e.dataset.t]});
-    var lb=$("leadBtn");if(BOT){lb.hidden=false;lb.href=botUrl("");$("tgBtn").classList.add("b3--line")}
     document.querySelectorAll("#langs button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
     works.forEach(function(w){
       var u=w.links[0][1],typ=t[w.type];
       w.sayEl.textContent=w.say[l];
-      w.card.innerHTML='<div class="card__type">'+typ+' <em>· '+w.kind[l]+'</em></div><h2 class="d3-s">'+w.name+'</h2><p>'+w.text[l]+'</p><div class="acts">'+
+      w.card.innerHTML='<div class="card__stop">'+t.tour+' · '+(works.indexOf(w)+1)+' / '+works.length+'</div><div class="card__type">'+typ+' <em>· '+w.kind[l]+'</em></div><h2 class="d3-s">'+w.name+'</h2><p>'+w.text[l]+'</p><div class="acts">'+
         w.links.map(function(k,n){return '<a class="b3'+(n?' b3--line':'')+'" href="'+k[1]+'"'+attrs(k[1])+'>'+t[k[0]]+arrow(k[1])+'</a>'}).join("")+
-        (BOT?'<a class="b3 b3--line" href="'+botUrl(w.slug)+'" target="_blank" rel="noopener">'+t.want+' ↗</a>':'')+'</div>';
+        '<button type="button" class="like" data-like="'+w.slug+'" aria-pressed="false"><i aria-hidden="true">♡</i><span></span></button></div>';
       w.li.innerHTML='<a class="row" href="'+u+'"'+attrs(u)+'><b>'+w.name+'</b><span>'+typ+' · '+w.kind[l]+'</span><u>'+t.open+arrow(u)+'</u></a>';
     });
   }
   var IB={uk:"uk",ru:"ru",cs:"cz",en:"en"};
   document.addEventListener("click",function(e){var a=e.target.closest('a[href^="works/iryna"]');if(a){try{localStorage.setItem("ib-lang",IB[lang])}catch(x){}}});
   $("langs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)setLang(b.dataset.l)});
+
+  /* ---------- Picks: "I want one like this" ---------- */
+  var picks=[];
+  try{picks=JSON.parse(localStorage.getItem("didera-picks")||"[]").filter(function(x){return works.some(function(w){return w.slug===x})})}catch(e){picks=[]}
+  function savePicks(){try{localStorage.setItem("didera-picks",JSON.stringify(picks))}catch(e){}}
+  function nameOf(sl){for(var i=0;i<works.length;i++)if(works[i].slug===sl)return works[i].name;return sl}
+  function renderPicks(){
+    var t=T[lang];
+    document.querySelectorAll("[data-like]").forEach(function(b){
+      var on=picks.indexOf(b.dataset.like)>=0;
+      b.setAttribute("aria-pressed",on);b.querySelector("i").textContent=on?"♥":"♡";b.querySelector("span").textContent=on?t.liked:t.like;
+    });
+    var box=$("picks");
+    box.innerHTML=picks.length?picks.map(function(sl){return '<span class="chip">'+nameOf(sl)+'<button type="button" data-unpick="'+sl+'" aria-label="×">×</button></span>'}).join(""):'<span>'+t.picks_none+'</span>';
+  }
+  document.addEventListener("click",function(e){
+    var b=e.target.closest("[data-like],[data-unpick]");if(!b)return;
+    var sl=b.dataset.like||b.dataset.unpick,k=picks.indexOf(sl);
+    if(k>=0)picks.splice(k,1);else if(b.dataset.like)picks.push(sl);
+    savePicks();renderPicks();
+  });
+  var _setLang=setLang;setLang=function(l){_setLang(l);renderPicks()};
+
+  /* ---------- Request ---------- */
+  $("req").addEventListener("submit",function(e){
+    e.preventDefault();
+    var t=T[lang],pk=(document.querySelector('input[name="pk"]:checked')||{}).value||"site";
+    var price={site:"250–350 €",bot:"450–1100 €",unsure:""}[pk];
+    var msg=$("msg").value.trim();
+    var text=t.m_hi+"\n"+(picks.length?t.m_like+": "+picks.map(nameOf).join(", ")+"\n":"")+t.m_pk+": "+t["pk_"+pk]+(price?" ("+price+")":"")+(msg?"\n"+t.m_me+": "+msg:"");
+    var url;
+    if(BOT){url="https://t.me/"+BOT+"?start="+("p_"+(picks.join("-")||"none")+"_"+pk+"_"+lang).slice(0,64);$("reqOk").textContent=t.sent_bot}
+    else{url="https://t.me/Didera_Web?text="+encodeURIComponent(text);$("reqOk").textContent=t.sent_copy;
+      try{navigator.clipboard.writeText(text)}catch(x){}}
+    window.open(url,"_blank","noopener");
+  });
+  document.querySelectorAll("[data-lead]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();$("talk").scrollIntoView({behavior:"smooth"})})});
+
   setLang(lang);
 
   $("copy").addEventListener("click",function(){
@@ -518,7 +610,6 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
     ui.style.top=top+"px";ui.style.height=sh+"px";
   }
   layout();
-  if(matchMedia("(hover:none)").matches)$("callBtn").href="tel:+420776523900";
 
   var flat=matchMedia("(prefers-reduced-motion:reduce)").matches;
   if(flat){root.classList.add("flat");addEventListener("resize",layout);return}
@@ -603,7 +694,7 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
     scrollTo({top:corridor.offsetTop+max*(i/n)});
   }
   document.querySelectorAll("[data-go]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();goTo(+a.dataset.go)})});
-  $("toWorks").addEventListener("click",function(e){e.preventDefault();goTo(1)});
+  $("tourBtn").addEventListener("click",function(e){e.preventDefault();goTo(1)});
   $("howto").addEventListener("click",function(){goTo(1)});
   addEventListener("pointermove",function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5},{passive:true});
 
