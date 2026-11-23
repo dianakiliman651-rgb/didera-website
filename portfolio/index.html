@@ -472,7 +472,7 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);display
   ];
 
   /* Username бота заявок без @, напр. "didera_requests_bot". Порожньо = кнопки бота сховані. */
-  var BOT="didera_web_requests_bot";
+  var BOT=""; /* увімкнути: "didera_web_requests_bot", коли бот запущено на сервері */
   var botUrl=function(sl){return "https://t.me/"+BOT+"?start="+(sl?"p_"+sl+"_":"")+lang};
   var $=function(i){return document.getElementById(i)};
   var root=document.documentElement;
