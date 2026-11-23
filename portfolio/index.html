@@ -213,6 +213,22 @@ h1,h2,h3{font-weight:400;text-wrap:balance}
 .like[aria-pressed="true"]{background:rgba(162,58,75,.35);border-color:var(--wine-hi)}
 .like:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
 .like i{font-style:normal;color:#e3a5ad;font-size:16px;line-height:1}
+.card__nav{display:flex;align-items:center;gap:8px;margin-top:4px;padding-top:12px;border-top:1px solid var(--line)}
+.nav-b{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:46px;min-height:46px;padding:0 14px;border-radius:12px;border:1px solid var(--line);font-size:15px;transition:background .2s,transform .15s,border-color .2s}
+.nav-b:hover{background:rgba(241,230,218,.08)}
+.nav-b:active{transform:scale(.96)}
+.nav-b:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
+.nav-b--next{margin-left:auto;background:linear-gradient(180deg,var(--wine-hi),var(--wine));border-color:transparent;font-size:14px;font-weight:500}
+.nav-b--next:hover{background:linear-gradient(180deg,#b04457,var(--wine-hi))}
+.nav-b--next span{display:inline-block;transition:transform .2s}
+.nav-b--next:hover span{transform:translateX(3px)}
+.card__nav .like{min-height:46px}
+.card__hint{font-size:12.5px!important;color:var(--mute)!important;display:flex;align-items:center;gap:8px}
+.card__hint::before{content:"";width:14px;height:22px;border:1.5px solid var(--mute);border-radius:8px;flex:none;background:radial-gradient(circle at 50% 30%,var(--cream) 1.6px,transparent 2px);animation:wheel 1.6s ease-in-out infinite}
+@keyframes wheel{50%{background-position:0 5px}}
+.tall .card__nav{gap:6px}
+.tall .nav-b{min-height:42px;min-width:42px;padding:0 12px;font-size:13.5px}
+.tall .card__nav .like{min-height:42px;padding:0 11px;font-size:12.5px}
 .card__stop{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
 .tall .like{min-height:44px;padding:0 13px;font-size:13px}
 .talk__grid{align-items:start!important}
@@ -353,13 +369,21 @@ textarea.kit__in{resize:vertical;min-height:84px}
 .tall .top{padding-left:var(--gut-l);padding-right:var(--gut-r)}
 .tall .ui{top:0!important;bottom:0;height:auto!important}
 .tall .col{--u:1px;left:var(--gut-l);right:var(--gut-r);top:auto;bottom:calc(20px + env(safe-area-inset-bottom,0px));width:auto;transform:none}
-.tall .col::before{content:"";position:absolute;inset:-110px calc(var(--gut-l) * -1) -30px;background:linear-gradient(180deg,transparent,rgba(26,21,20,.9) 34%);z-index:-1}
-.tall .mast{font-size:clamp(44px,13vw,80px)}
-.tall .bar{width:66px;height:4px;margin:2px 0 10px}
-.tall .tag{font-size:clamp(21px,5.8vw,28px);text-shadow:0 1px 0 #66544d,0 3px 10px rgba(0,0,0,.55)}
+.tall .col::before{display:none}
+.tall .cover{background:var(--ink)}
+.tall .cover::after{content:"";position:absolute;left:0;right:0;top:calc(var(--sceneH) - 120px);height:121px;background:linear-gradient(180deg,rgba(26,21,20,0),var(--ink));pointer-events:none}
+.tall .ui{z-index:2}
+.tall .mast{display:none}
+.tall .bub{font-size:12px;padding:6px 12px;border-radius:16px}
+.tall .bub::after{width:9px;height:9px;bottom:-5px}
+.tall .bar{width:44px;height:2px;margin:0 0 14px;animation:none}
+.tall .tag{font-size:clamp(26px,7.4vw,34px);line-height:1.1;text-shadow:none}
+.tall .tag em{font-size:.62em;line-height:1.3;margin-top:6px;color:#e3cfc0}
 .tall .tags{display:none}
-.tall .intro{font-size:14px;line-height:1.45;margin-top:8px;max-width:none}
-.tall .acts0{margin-top:14px;flex-wrap:wrap}
+.tall .intro{font-size:14px;line-height:1.5;margin-top:10px;max-width:36ch;color:var(--mute)}
+.tall .acts0{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tall .acts0 .b3{justify-content:center;box-shadow:none}
+.tall .acts0 .b3 span[aria-hidden]{display:none}
 .tall .b3{min-height:46px;font-size:13px;padding:0 13px;gap:9px;border-radius:12px}
 .tall .b3 svg{width:17px;height:17px}
 .tall .go{display:none}
@@ -369,7 +393,8 @@ textarea.kit__in{resize:vertical;min-height:84px}
 .tall .say{right:84%;font-size:12.5px;max-width:190px;width:max-content}
 .tall .hud{left:var(--gut-l);right:var(--gut-r);top:auto;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:auto;transform:none}
 .tall .card{align-self:end;gap:8px;padding:18px}
-.tall .card h2{font-size:clamp(28px,8.4vw,42px);text-shadow:0 1px 0 #66544d,0 4px 12px rgba(0,0,0,.5)}
+.tall .card h2{font-size:clamp(28px,8.4vw,42px);text-shadow:none}
+.tall .card__stop{display:none}
 .tall .card p{font-size:14.5px;line-height:1.45}
 .tall .card .acts{gap:8px}
 .tall .acts .b3{min-height:44px;padding:0 15px}
@@ -546,28 +571,28 @@ textarea.kit__in{resize:vertical;min-height:84px}
       c1:"Сайти, які продають",c2:"Автоматизація",c3:"Telegram-боти",c4:"Рішення під ключ",
       howto:"Екскурсія з Діаною",all:"Усі роботи",talk1:"Збери",talk2:"свій сайт",
       talk3:"Обери стиль, кольори, шрифти й блоки, і макет одразу зміниться. Ти збираєш, а я перетворюю це на справжній сайт.",copy:"Скопіювати",copied:"Скопійовано",
-      live:"Живий проєкт",concept:"Концепт",site:"Сайт",open:"Відкрити",opensite:"Відкрити сайт",openbot:"Відкрити бота",enter:"Увійти на сайт",run:"Запустити досвід",fresh:"Новий проєкт",want:"Хочу такий",lead:"Залишити заявку",hi1:"Привіт, я Діана.",hi2:"Вітаю у моєму світі веб-сторінок.",intro:"Кейсів поки небагато, і кожен зроблений так, щоб у нього закохувались. Ходімо на екскурсію: я сяду на кожен сайт і розповім про нього. А в кінці ти залишиш заявку на свій.",tour_go:"Почати екскурсію",tour:"Екскурсія",like:"Хочу такий",liked:"Додано в заявку",picks_h:"Тобі сподобались",picks_none:"Під час екскурсії тисни ♡ «Хочу такий», і проєкти з'являться тут.",pk_h:"Що тобі потрібно?",pk_site:"Сайт",pk_bot:"Сайт + Telegram-бот",pk_unsure:"Ще не знаю",pk_unsure2:"порадь мені",pk_note:"Ціни орієнтовні. Точну суму скажу, коли поговоримо.",msg_h:"Кілька слів про твою справу",sent_copy:"Відкриваю Telegram. Текст заявки вже скопійовано, просто встав його в чат і надішли 🤍",sent_bot:"Відкриваю бота, він підхопить твою заявку 🤍",m_hi:"Привіт, Діано! Хочу залишити заявку.",m_like:"Сподобались",m_pk:"Пакет",m_me:"Про мене"},
+      live:"Живий проєкт",concept:"Концепт",site:"Сайт",open:"Відкрити",opensite:"Відкрити сайт",openbot:"Відкрити бота",enter:"Увійти на сайт",run:"Запустити досвід",fresh:"Новий проєкт",want:"Хочу такий",lead:"Залишити заявку",hi1:"Привіт, я Діана.",hi2:"Вітаю у моєму світі веб-сторінок.",intro:"Кейсів поки небагато, і кожен зроблений так, щоб у нього закохувались. Ходімо на екскурсію: я сяду на кожен сайт і розповім про нього. А в кінці ти залишиш заявку на свій.",tour_go:"Почати екскурсію",tour:"Екскурсія",like:"Хочу такий",liked:"Додано в заявку",picks_h:"Тобі сподобались",picks_none:"Під час екскурсії тисни ♡ «Хочу такий», і проєкти з'являться тут.",pk_h:"Що тобі потрібно?",pk_site:"Сайт",pk_bot:"Сайт + Telegram-бот",pk_unsure:"Ще не знаю",pk_unsure2:"порадь мені",pk_note:"Ціни орієнтовні. Точну суму скажу, коли поговоримо.",msg_h:"Кілька слів про твою справу",sent_copy:"Відкриваю Telegram. Текст заявки вже скопійовано, просто встав його в чат і надішли 🤍",sent_bot:"Відкриваю бота, він підхопить твою заявку 🤍",m_hi:"Привіт, Діано! Хочу залишити заявку.",next:"Летимо далі",prev:"Назад",last:"Збери свій сайт",hint:"Гортай сторінку або тисни «Летимо далі»",m_like:"Сподобались",m_pk:"Пакет",m_me:"Про мене"},
     ru:{nav_works:"Проекты",nav_contact:"Конструктор",
       tag1:"Сайты, автоматизация и цифровые решения,",tag2:"в которые влюбляются.",
       cta_tg:"Напиши мне в Telegram",cta_call:"Позвони",cta_works:"Все проекты списком",
       c1:"Сайты, которые продают",c2:"Автоматизация",c3:"Telegram-боты",c4:"Решения под ключ",
       howto:"Экскурсия с Дианой",all:"Все работы",talk1:"Собери",talk2:"свой сайт",
       talk3:"Выбери стиль, цвета, шрифты и блоки, и макет сразу изменится. Ты собираешь, а я превращаю это в настоящий сайт.",copy:"Скопировать",copied:"Скопировано",
-      live:"Живой проект",concept:"Концепт",site:"Сайт",open:"Открыть",opensite:"Открыть сайт",openbot:"Открыть бота",enter:"Войти на сайт",run:"Запустить опыт",fresh:"Новый проект",want:"Хочу такой",lead:"Оставить заявку",hi1:"Привет, я Диана.",hi2:"Добро пожаловать в мой мир веб-страниц.",intro:"Кейсов пока немного, и каждый сделан так, чтобы в него влюблялись. Пойдём на экскурсию: я сяду на каждый сайт и расскажу о нём. А в конце ты оставишь заявку на свой.",tour_go:"Начать экскурсию",tour:"Экскурсия",like:"Хочу такой",liked:"Добавлено в заявку",picks_h:"Тебе понравились",picks_none:"Во время экскурсии жми ♡ «Хочу такой», и проекты появятся здесь.",pk_h:"Что тебе нужно?",pk_site:"Сайт",pk_bot:"Сайт + Telegram-бот",pk_unsure:"Пока не знаю",pk_unsure2:"подскажи мне",pk_note:"Цены ориентировочные. Точную сумму скажу, когда поговорим.",msg_h:"Пара слов о твоём деле",sent_copy:"Открываю Telegram. Текст заявки уже скопирован, просто вставь его в чат и отправь 🤍",sent_bot:"Открываю бота, он подхватит твою заявку 🤍",m_hi:"Привет, Диана! Хочу оставить заявку.",m_like:"Понравились",m_pk:"Пакет",m_me:"О себе"},
+      live:"Живой проект",concept:"Концепт",site:"Сайт",open:"Открыть",opensite:"Открыть сайт",openbot:"Открыть бота",enter:"Войти на сайт",run:"Запустить опыт",fresh:"Новый проект",want:"Хочу такой",lead:"Оставить заявку",hi1:"Привет, я Диана.",hi2:"Добро пожаловать в мой мир веб-страниц.",intro:"Кейсов пока немного, и каждый сделан так, чтобы в него влюблялись. Пойдём на экскурсию: я сяду на каждый сайт и расскажу о нём. А в конце ты оставишь заявку на свой.",tour_go:"Начать экскурсию",tour:"Экскурсия",like:"Хочу такой",liked:"Добавлено в заявку",picks_h:"Тебе понравились",picks_none:"Во время экскурсии жми ♡ «Хочу такой», и проекты появятся здесь.",pk_h:"Что тебе нужно?",pk_site:"Сайт",pk_bot:"Сайт + Telegram-бот",pk_unsure:"Пока не знаю",pk_unsure2:"подскажи мне",pk_note:"Цены ориентировочные. Точную сумму скажу, когда поговорим.",msg_h:"Пара слов о твоём деле",sent_copy:"Открываю Telegram. Текст заявки уже скопирован, просто вставь его в чат и отправь 🤍",sent_bot:"Открываю бота, он подхватит твою заявку 🤍",m_hi:"Привет, Диана! Хочу оставить заявку.",next:"Летим дальше",prev:"Назад",last:"Собери свой сайт",hint:"Листай страницу или жми «Летим дальше»",m_like:"Понравились",m_pk:"Пакет",m_me:"О себе"},
     cs:{nav_works:"Projekty",nav_contact:"Konstruktor",
       tag1:"Weby, automatizace a digitální řešení,",tag2:"do kterých se zamilujete.",
       cta_tg:"Napiš mi na Telegram",cta_call:"Zavolej mi",cta_works:"Všechny projekty v seznamu",
       c1:"Weby, které prodávají",c2:"Automatizace",c3:"Telegram boti",c4:"Řešení na klíč",
       howto:"Prohlídka s Dianou",all:"Všechny projekty",talk1:"Poskládej si",talk2:"svůj web",
       talk3:"Vyber styl, barvy, písma a bloky a náhled se hned změní. Ty skládáš, já z toho udělám skutečný web.",copy:"Kopírovat",copied:"Zkopírováno",
-      live:"Živý projekt",concept:"Koncept",site:"Web",open:"Otevřít",opensite:"Otevřít web",openbot:"Otevřít bota",enter:"Vstoupit na web",run:"Spustit zážitek",fresh:"Nový projekt",want:"Chci podobný",lead:"Poslat poptávku",hi1:"Ahoj, jsem Diana.",hi2:"Vítej v mém světě webových stránek.",intro:"Projektů zatím není moc, ale každý je udělaný tak, aby se do něj lidé zamilovali. Pojď na prohlídku: sednu si na každý web a povím ti o něm. A na konci mi pošleš poptávku na ten svůj.",tour_go:"Začít prohlídku",tour:"Prohlídka",like:"Chci podobný",liked:"Přidáno do poptávky",picks_h:"Líbí se ti",picks_none:"Během prohlídky klikni na ♡ „Chci podobný“ a projekty se objeví tady.",pk_h:"Co potřebuješ?",pk_site:"Web",pk_bot:"Web + Telegram bot",pk_unsure:"Ještě nevím",pk_unsure2:"poraď mi",pk_note:"Ceny jsou orientační. Přesnou částku řeknu, až si promluvíme.",msg_h:"Pár slov o tvém podnikání",sent_copy:"Otevírám Telegram. Text poptávky je zkopírovaný, stačí ho vložit do chatu a odeslat 🤍",sent_bot:"Otevírám bota, poptávku převezme 🤍",m_hi:"Ahoj Diano! Chci poslat poptávku.",m_like:"Líbí se mi",m_pk:"Balíček",m_me:"O mně"},
+      live:"Živý projekt",concept:"Koncept",site:"Web",open:"Otevřít",opensite:"Otevřít web",openbot:"Otevřít bota",enter:"Vstoupit na web",run:"Spustit zážitek",fresh:"Nový projekt",want:"Chci podobný",lead:"Poslat poptávku",hi1:"Ahoj, jsem Diana.",hi2:"Vítej v mém světě webových stránek.",intro:"Projektů zatím není moc, ale každý je udělaný tak, aby se do něj lidé zamilovali. Pojď na prohlídku: sednu si na každý web a povím ti o něm. A na konci mi pošleš poptávku na ten svůj.",tour_go:"Začít prohlídku",tour:"Prohlídka",like:"Chci podobný",liked:"Přidáno do poptávky",picks_h:"Líbí se ti",picks_none:"Během prohlídky klikni na ♡ „Chci podobný“ a projekty se objeví tady.",pk_h:"Co potřebuješ?",pk_site:"Web",pk_bot:"Web + Telegram bot",pk_unsure:"Ještě nevím",pk_unsure2:"poraď mi",pk_note:"Ceny jsou orientační. Přesnou částku řeknu, až si promluvíme.",msg_h:"Pár slov o tvém podnikání",sent_copy:"Otevírám Telegram. Text poptávky je zkopírovaný, stačí ho vložit do chatu a odeslat 🤍",sent_bot:"Otevírám bota, poptávku převezme 🤍",m_hi:"Ahoj Diano! Chci poslat poptávku.",next:"Letíme dál",prev:"Zpět",last:"Poskládej si web",hint:"Posouvej stránku nebo klikni na „Letíme dál“",m_like:"Líbí se mi",m_pk:"Balíček",m_me:"O mně"},
     en:{nav_works:"Projects",nav_contact:"Site builder",
       tag1:"Websites, automation and digital solutions",tag2:"people fall in love with.",
       cta_tg:"Message me on Telegram",cta_call:"Call me",cta_works:"All projects as a list",
       c1:"Websites that sell",c2:"Automation",c3:"Telegram bots",c4:"Turnkey solutions",
       howto:"A tour with Diana",all:"All projects",talk1:"Build",talk2:"your site",
       talk3:"Pick a style, colours, fonts and blocks, and the preview changes right away. You put it together, I turn it into a real site.",copy:"Copy",copied:"Copied",
-      live:"Live project",concept:"Concept",site:"Website",open:"Open",opensite:"Open site",openbot:"Open bot",enter:"Enter site",run:"Start the experience",fresh:"New project",want:"I want one like this",lead:"Send a request",hi1:"Hi, I'm Diana.",hi2:"Welcome to my world of web pages.",intro:"There aren't many cases yet, and each one is made for people to fall in love with. Let's take a tour: I'll sit on every site and tell you about it. At the end, you can send a request for yours.",tour_go:"Start the tour",tour:"Tour",like:"I want one",liked:"Added to request",picks_h:"You liked",picks_none:"During the tour, tap ♡ “I want one” and the projects will show up here.",pk_h:"What do you need?",pk_site:"Website",pk_bot:"Website + Telegram bot",pk_unsure:"Not sure yet",pk_unsure2:"advise me",pk_note:"Prices are approximate. I'll name the exact figure after we talk.",msg_h:"A few words about your business",sent_copy:"Opening Telegram. Your request is copied, just paste it into the chat and send 🤍",sent_bot:"Opening the bot, it will pick up your request 🤍",m_hi:"Hi Diana! I'd like to send a request.",m_like:"I liked",m_pk:"Package",m_me:"About me"}
+      live:"Live project",concept:"Concept",site:"Website",open:"Open",opensite:"Open site",openbot:"Open bot",enter:"Enter site",run:"Start the experience",fresh:"New project",want:"I want one like this",lead:"Send a request",hi1:"Hi, I'm Diana.",hi2:"Welcome to my world of web pages.",intro:"There aren't many cases yet, and each one is made for people to fall in love with. Let's take a tour: I'll sit on every site and tell you about it. At the end, you can send a request for yours.",tour_go:"Start the tour",tour:"Tour",like:"I want one",liked:"Added to request",picks_h:"You liked",picks_none:"During the tour, tap ♡ “I want one” and the projects will show up here.",pk_h:"What do you need?",pk_site:"Website",pk_bot:"Website + Telegram bot",pk_unsure:"Not sure yet",pk_unsure2:"advise me",pk_note:"Prices are approximate. I'll name the exact figure after we talk.",msg_h:"A few words about your business",sent_copy:"Opening Telegram. Your request is copied, just paste it into the chat and send 🤍",sent_bot:"Opening the bot, it will pick up your request 🤍",m_hi:"Hi Diana! I'd like to send a request.",next:"Fly on",prev:"Back",last:"Build your site",hint:"Scroll or tap “Fly on”",m_like:"I liked",m_pk:"Package",m_me:"About me"}
   };
   var works=[
     {name:"MARINEK",slug:"marinek",type:"live",bar:"marinaekfitness.com",img:"images/marinek.webp",room:"#7a2433",
@@ -695,7 +720,10 @@ textarea.kit__in{resize:vertical;min-height:84px}
       w.sayEl.textContent=w.say[l];
       w.card.innerHTML='<div class="card__stop">'+t.tour+' · '+(works.indexOf(w)+1)+' / '+works.length+'</div><div class="card__type">'+typ+' <em>· '+w.kind[l]+'</em></div><h2 class="d3-s">'+w.name+'</h2><p>'+w.text[l]+'</p><div class="acts">'+
         w.links.map(function(k,n){return '<a class="b3'+(n?' b3--line':'')+'" href="'+k[1]+'"'+attrs(k[1])+'>'+t[k[0]]+arrow(k[1])+'</a>'}).join("")+
-        '<button type="button" class="like" data-like="'+w.slug+'" aria-pressed="false"><i aria-hidden="true">♡</i><span></span></button></div>';
+        '</div><div class="card__nav"><button type="button" class="nav-b" data-step="'+works.indexOf(w)+'" aria-label="'+t.prev+'">←</button>'+
+        '<button type="button" class="like" data-like="'+w.slug+'" aria-pressed="false"><i aria-hidden="true">♡</i><span></span></button>'+
+        '<button type="button" class="nav-b nav-b--next" data-step="'+(works.indexOf(w)+2)+'">'+(works.indexOf(w)===works.length-1?t.last:t.next)+' <span aria-hidden="true">→</span></button></div>'+
+        (works.indexOf(w)===0?'<p class="card__hint">'+t.hint+'</p>':'');
       w.li.innerHTML='<a class="row" href="'+u+'"'+attrs(u)+'><b>'+w.name+'</b><span>'+typ+' · '+w.kind[l]+'</span><u>'+t.open+arrow(u)+'</u></a>';
     });
   }
@@ -878,8 +906,9 @@ textarea.kit__in{resize:vertical;min-height:84px}
   function layout(){
     W=stage.clientWidth;H=stage.clientHeight;tall=W/H<1.22;
     root.classList.toggle("tall",tall);
-    var u=Math.max(W/1280,H/800),sw=1280*u,sh=800*u;
-    var cx=tall?700:640,left=Math.min(0,Math.max(W-sw,W/2-cx*u)),top=tall?Math.min(0,(H-sh)*.5):H-sh;
+    var u=tall?Math.max(W/1280,H*.6/800):Math.max(W/1280,H/800),sw=1280*u,sh=800*u;
+    var cx=tall?720:640,left=Math.min(0,Math.max(W-sw,W/2-cx*u)),top=tall?0:H-sh;
+    root.style.setProperty("--sceneH",sh+"px");
     root.style.setProperty("--u",u+"px");
     scene.style.transform="translate("+left+"px,"+top+"px)";
     ui.style.top=top+"px";ui.style.height=sh+"px";
@@ -970,6 +999,8 @@ textarea.kit__in{resize:vertical;min-height:84px}
   }
   document.querySelectorAll("[data-go]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();goTo(+a.dataset.go)})});
   $("tourBtn").addEventListener("click",function(e){e.preventDefault();goTo(1)});
+  $("hud").addEventListener("click",function(e){var b=e.target.closest("[data-step]");if(!b)return;var k=+b.dataset.step;
+    if(k>n){$("talk").scrollIntoView({behavior:"smooth"})}else goTo(Math.max(0,k))});
   $("howto").addEventListener("click",function(){goTo(1)});
   addEventListener("pointermove",function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5},{passive:true});
 
